@@ -68,6 +68,8 @@
   .btn.brand{ background:var(--brand); color:var(--brand-ink); border:1px solid var(--brand); }
   .btn.brand:hover{ filter: brightness(0.95); }
   .btn.big{ padding:14px 24px; font-size:16px; }
+  .btn-link{ background:none; border:none; padding:0; font:inherit; color:var(--color-8); text-decoration:underline; cursor:pointer; }
+  .btn-link:hover{ color:var(--brand); }
 
   .input,select,textarea{
     width:100%; padding:14px 16px; border-radius:12px; border:1.5px solid var(--line); background:#fff;
@@ -83,6 +85,7 @@
     transition:transform .2s, box-shadow .2s;
   }
   .card:hover{ transform:translateY(-3px); box-shadow:var(--shadow-md); }
+  .card.card-link{ text-decoration:none; color:inherit; display:flex; flex-direction:column; cursor:pointer; }
   .card .media-wrap{ position:relative; overflow:hidden }
   .card > .media, .media-wrap > .media{ width:100%; aspect-ratio:16/10; background:#f0f0f0; display:block; object-fit:cover; }
   .card .content{ padding:22px }
@@ -127,6 +130,22 @@
     padding:8px 12px; border-radius:999px; box-shadow:0 4px 12px rgba(0,0,0,.2);
   }
   .badge-verified svg{ width:14px; height:14px; }
+
+  /* Project card status banners (over image) */
+  .card-banner{
+    position:absolute; top:0; left:0; right:0; z-index:2;
+    display:flex; align-items:center; justify-content:center;
+    font-size:11px; font-weight:800; letter-spacing:.06em; text-transform:uppercase;
+    padding:8px 12px; color:#fff; text-align:center;
+    box-shadow:0 2px 8px rgba(0,0,0,.15);
+  }
+  .card-banner.complete{
+    background:linear-gradient(135deg, var(--ok), #1a7a4c);
+  }
+  .card-banner.available{
+    background:linear-gradient(135deg, var(--brand), var(--color-8));
+    color:var(--brand-ink);
+  }
 
   ol, ul{ padding-left:20px; }
   ol li, ul li{ margin-bottom:8px; line-height:1.6; }
@@ -422,8 +441,9 @@
     <div class="grid" style="grid-template-columns:320px 1fr;gap:24px">
       <div class="card" style="padding:24px;height:fit-content">
         <div class="stack">
-          <div class="field"><label for="proj-q">Keyword</label><input id="proj-q" class="input" placeholder="install locks, full-time presence…"></div>
-          <div class="field"><label for="proj-loc">Location</label><input id="proj-loc" class="input" placeholder="city or region"></div>
+          <div class="field"><label for="proj-q">Keyword</label><input id="proj-q" class="input" placeholder="secure house, oversee construction, contractor hours…"></div>
+          <p class="small muted" style="margin:-8px 0 0">Try: <button type="button" class="btn-link" data-proj-keyword="secure house">secure house</button> · <button type="button" class="btn-link" data-proj-keyword="oversee construction">oversee construction</button> · <button type="button" class="btn-link" data-proj-keyword="maintain contractor hours">contractor hours</button> · <button type="button" class="btn-link" data-proj-keyword="project complete">project complete</button> · <button type="button" class="btn-link" data-proj-keyword="downed tree">downed tree</button></p>
+          <div class="field"><label for="proj-loc">Location</label><input id="proj-loc" class="input" placeholder="Your City (demo)"></div>
           <div class="row">
             <div class="field" style="flex:1"><label for="proj-from">From</label><input id="proj-from" type="date" class="input"></div>
             <div class="field" style="flex:1"><label for="proj-to">To</label><input id="proj-to" type="date" class="input"></div>
@@ -458,6 +478,11 @@
       </div>
     </div>
   </div>
+</section>
+
+<!-- PROJECT DETAIL (single listing, opened from Search Projects) -->
+<section id="route-project" data-route="project" hidden>
+  <div class="container stack" id="project-detail-wrap"></div>
 </section>
 
 <!-- HOW IT WORKS (simplified, risk-first & verification-first) -->
@@ -711,10 +736,13 @@
   ];
 
   /* ===== Demo data (PROJECTS) ===== */
+  /* Images in images/projects/ — see images/projects/README.txt. Keywords in title/needs make listings searchable. */
   const sampleProjects = [
-    {id:'house-demo', title:"My House — Aug 13 to Sept 30", city:'Your City', from:'2025-08-13', to:'2025-09-30', needs:['Full-time presence','Install cameras','Install keycode locks'], pay:[400,800], bidsLeft:4, img: null},
-    {id:'p2', title:'Duplex watch — weekends only', city:'Chicago, IL', from:'2025-09-12', to:'2025-10-01', needs:['Check mail','Light yardwork'], pay:[150,300], bidsLeft:5, img: ph('Duplex')},
-    {id:'p3', title:'Condo: package pickup & plants', city:'Portland, OR', from:'2025-09-08', to:'2025-10-15', needs:['Packages','Plants','Photo reports'], pay:[100,250], bidsLeft:2, img: ph('Condo')},
+    {id:'johnhouse', title:"Secure house — oversee construction, maintain contractor hours", city:'Your City', from:'2025-08-13', to:'2025-09-30', needs:['Secure house','Oversee construction','Maintain contractor hours','Full-time presence'], pay:[400,800], bidsLeft:4, img:'images/projects/johnhouse.jpeg', imgPlaceholder:'House', description:'Property owner needs a responsible presence during construction. Oversee contractor hours, keep the house secure, and provide brief photo reports. Ideal for someone who can be on-site during work windows.'},
+    {id:'dorothyhouse', title:"Property watch — secure house, contractor oversight", city:'Your City', from:'2025-09-01', to:'2025-10-15', needs:['Secure house','Oversee construction','Maintain contractor hours','Photo reports'], pay:[350,700], bidsLeft:5, img:'images/projects/dorothyhouse.jpg', imgPlaceholder:'House', description:'Ongoing property watch with contractor oversight. Maintain security, coordinate with trades as needed, and send regular photo updates. Stipend negotiable based on scope.'},
+    {id:'stairsrepair', title:"Keep entrance secured — 1 week", city:'Your City', from:'2025-09-08', to:'2025-09-15', needs:['Secure entrance','1 week presence','Keep entrance secured'], pay:[150,300], bidsLeft:3, img:'images/projects/stairsrepair.jpg', imgPlaceholder:'Stairs', description:'Short 1-week sit: keep entrance secured while repairs are scheduled. Minimal duties — presence and lock-up. Perfect for a local or someone passing through.'},
+    {id:'stairsfixed', title:"Project complete: Stairs repair", city:'Your City', from:'2025-08-01', to:'2025-08-20', needs:['Stairs repair','Project complete','Showcase'], pay:[0,0], bidsLeft:0, img:'images/projects/stairsfixed.JPG', imgPlaceholder:'Stairs', showcase:true, completedBy:'Nichole123', possibleEarnings:[400,600], description:'This listing is closed. Stairs repair was completed successfully. Shown here as an example of a finished project and possible earnings for similar work.'},
+    {id:'downed-tree', title:"Downed tree backyard — yard secure & cleanup", city:'Your City', from:'2025-09-20', to:'2025-10-05', needs:['Backyard','Downed tree','Yard secure','Cleanup','Photo reports'], pay:[200,450], bidsLeft:5, img:'images/projects/img_1396.jpg', imgPlaceholder:'Backyard', description:'Downed tree in backyard. Need someone to keep the yard secure, document condition with photos, and coordinate cleanup if needed. Photo reports for insurance.'},
   ];
 
   /* ===== Placeholder SVG generator ===== */
@@ -790,25 +818,93 @@
     const wrap = document.getElementById('proj-results'); if(!wrap) return;
     wrap.innerHTML = '';
     list.forEach(p=>{
-      const el = document.createElement('div');
-      el.className = 'card';
+      const el = document.createElement('a');
+      el.className = 'card card-link';
+      el.href = '#/project/' + p.id;
       const bidsLeft = state.bids[p.id] != null ? state.bids[p.id] : p.bidsLeft;
-      const img = p.img || ph('House');
+      const placeholder = ph(p.imgPlaceholder || 'House');
+      const img = p.img || placeholder;
+      const fallback = placeholder.replace(/'/g, "\\'");
+      const isShowcase = p.showcase === true;
+      const banner = isShowcase
+        ? '<div class="card-banner complete">Project complete</div>'
+        : '<div class="card-banner available">Available</div>';
+      const payChip = isShowcase ? '<span class="chip" style="background:#e8e8e8;color:#555">Unavailable — completed</span>' : `<span class="chip brand">${p.pay[0]}–${p.pay[1]} / mo</span>`;
+      const bidSection = isShowcase ? '' : `<button type="button" class="btn brand" ${bidsLeft<=0?'disabled':''} onclick="event.preventDefault();event.stopPropagation();openBidModal('${p.id}')">Bid</button>`;
+      const bidsPill = isShowcase ? '<span class="pill">Showcase</span>' : `<span class="pill"><strong>Bids left:</strong> ${bidsLeft}</span>`;
+      const completedBy = isShowcase && p.completedBy
+        ? `<p class="small" style="margin:0"><strong>Completed by ${p.completedBy}</strong></p>`
+        : '';
+      const possibleEarnings = isShowcase && p.possibleEarnings && p.possibleEarnings[0] != null
+        ? `<p class="small muted" style="margin:0">Possible earnings: $${p.possibleEarnings[0]}–$${p.possibleEarnings[1]}</p>`
+        : '';
       el.innerHTML = `
-        <img class="media" alt="${p.title}" src="${img}">
+        <div class="media-wrap">
+          <img class="media" alt="${p.title}" src="${img}" onerror="this.onerror=null;this.src='${fallback}'">
+          ${banner}
+        </div>
         <div class="content stack">
           <div class="row" style="justify-content:space-between;align-items:center">
             <strong>${p.title}</strong>
-            <span class="pill"><strong>Bids left:</strong> ${bidsLeft}</span>
+            ${bidsPill}
           </div>
           <div class="small muted">${p.city} • ${fmtDate(p.from)} → ${fmtDate(p.to)}</div>
+          ${completedBy}${possibleEarnings}
           <div class="row" style="flex-wrap:wrap;gap:8px">${p.needs.map(x=>`<span class='pill'>${x}</span>`).join('')}</div>
-          <div class="row"><span class="chip brand">${p.pay[0]}–${p.pay[1]} / mo</span><button class="btn brand" ${bidsLeft<=0?'disabled':''} onclick="openBidModal('${p.id}')">Bid</button></div>
+          <div class="row">${payChip} ${bidSection}</div>
         </div>`;
       wrap.appendChild(el);
     });
   }
+
+  /* ===== Project detail page (listing view) ===== */
+  function renderProjectDetail(id){
+    const wrap = document.getElementById('project-detail-wrap');
+    if(!wrap) return;
+    const p = sampleProjects.find(proj => proj.id === id);
+    if(!p){
+      wrap.innerHTML = '<p class="muted"><a href="#/search-projects" data-route-link class="btn secondary">← Back to Search Projects</a></p><p class="muted">Listing not found.</p>';
+      return;
+    }
+    const placeholder = ph(p.imgPlaceholder || 'House');
+    const img = p.img || placeholder;
+    const isShowcase = p.showcase === true;
+    const banner = isShowcase ? '<div class="card-banner complete">Project complete</div>' : '<div class="card-banner available">Available</div>';
+    const completedLine = isShowcase && p.completedBy ? `<p class="small"><strong>Completed by ${p.completedBy}</strong>${p.possibleEarnings && p.possibleEarnings[0] != null ? ` · Possible earnings: $${p.possibleEarnings[0]}–$${p.possibleEarnings[1]}` : ''}</p>` : '';
+    const subject = encodeURIComponent('Patchwork Living — interest in: ' + p.title);
+    const body = encodeURIComponent('Hi,\n\nI\'m interested in this listing:\n' + p.title + '\n\nId: ' + p.id + '\n\n[Your message here]');
+    wrap.innerHTML = `
+      <p class="muted" style="margin-bottom:8px"><a href="#/search-projects" data-route-link class="btn secondary">← Back to Search Projects</a></p>
+      <div class="card" style="overflow:visible">
+        <div class="media-wrap" style="max-height:420px">
+          <img class="media" alt="${p.title}" src="${img}" onerror="this.onerror=null;this.src='${placeholder.replace(/'/g, "\\'")}'" style="aspect-ratio:16/10;object-fit:cover">
+          ${banner}
+        </div>
+        <div class="content stack" style="padding:28px">
+          <h2 style="margin:0;font-size:clamp(22px,2.5vw,28px)">${p.title}</h2>
+          <div class="small muted">${p.city} · ${fmtDate(p.from)} → ${fmtDate(p.to)}</div>
+          ${completedLine}
+          <div class="row" style="flex-wrap:wrap;gap:8px">${p.needs.map(x=>'<span class="pill">'+x+'</span>').join('')}</div>
+          ${!isShowcase ? `<p class="chip brand" style="align-self:flex-start">${p.pay[0]}–${p.pay[1]} / mo</p>` : '<p class="chip" style="background:#e8e8e8;color:#555;align-self:flex-start">Unavailable — completed</p>'}
+          <div style="border-top:1px solid var(--line);padding-top:20px;margin-top:8px">
+            <p class="muted" style="margin:0 0 12px">${p.description || ''}</p>
+          </div>
+          <div class="card" style="background:var(--muted);border:2px solid var(--brand);padding:24px">
+            <div class="stack" style="gap:12px">
+              <strong>If you're interested, send us an email!</strong>
+              <p class="small muted" style="margin:0">We'll connect you with the listing owner. Paid members may get direct contact options here in the future.</p>
+              <a href="mailto:help@patchworkwithus.com?subject=${subject}&body=${body}" class="btn brand">Email us about this listing</a>
+            </div>
+          </div>
+        </div>
+      </div>`;
+  }
+
   document.getElementById('proj-filter')?.addEventListener('click', renderProjects);
+  document.querySelector('[id="route-search-projects"]')?.addEventListener('click', function(e){
+    const kw = e.target?.closest?.('[data-proj-keyword]')?.getAttribute('data-proj-keyword');
+    if(kw){ document.getElementById('proj-q').value = kw; renderProjects(); }
+  });
 
   /* ===== Modal helpers ===== */
   let activeBidProject = null;
@@ -833,15 +929,20 @@
   /* ===== Router ===== */
   function route(){
     const hash = location.hash.replace('#/','') || 'home';
+    const isProjectDetail = hash.startsWith('project/');
+    const projectId = isProjectDetail ? hash.split('/')[1] : null;
     document.querySelectorAll('section[data-route]').forEach(sec => {
-      sec.hidden = sec.getAttribute('data-route') !== hash;
+      const r = sec.getAttribute('data-route');
+      const show = (r === hash) || (r === 'project' && isProjectDetail);
+      sec.hidden = !show;
     });
     document.querySelectorAll('nav a[data-route-link]').forEach(a=>{
       const r = a.getAttribute('href').replace('#/','');
-      if(r===hash) a.classList.add('active'); else a.classList.remove('active');
+      if(r===hash || (r==='search-projects' && isProjectDetail)) a.classList.add('active'); else a.classList.remove('active');
     });
     if(hash==='search-sitters') renderSitters();
     if(hash==='search-projects') renderProjects();
+    if(isProjectDetail && projectId) renderProjectDetail(projectId);
     document.getElementById('year').textContent = new Date().getFullYear();
   }
   window.addEventListener('hashchange', route);
