@@ -88,6 +88,7 @@
   .card.card-link{ text-decoration:none; color:inherit; display:flex; flex-direction:column; cursor:pointer; }
   .card .media-wrap{ position:relative; overflow:hidden }
   .card > .media, .media-wrap > .media{ width:100%; aspect-ratio:16/10; background:#f0f0f0; display:block; object-fit:cover; }
+  .media-wrap > .media.photo-contain{ object-fit:contain; aspect-ratio:3/4; }
   .card .content{ padding:22px }
 
   .chip{ display:inline-flex; align-items:center; gap:6px; border-radius:999px; background:#111; color:#fff; padding:8px 12px; font-size:13px; font-weight:700; }
@@ -398,6 +399,7 @@
               <option>CPR Certified</option>
               <option>Plumbing</option>
               <option>Carpentry</option>
+              <option>Drywall</option>
               <option>Spanish</option>
               <option>Mold Remediation</option>
               <option>Painting</option>
@@ -726,17 +728,17 @@
       name:'Elizabeth',
       location:'Your City',
       tagline:'Union member • Homeowner • Pet owner 15+ years',
-      skills:['Security','CPR Certified','Carpentry','Trust Certified','Pet care','Handyman','Property Check-ins'],
+      skills:['Security','CPR Certified','Carpentry','Drywall','Trust Certified','Pet care','Handyman','Property Check-ins','Cleaning'],
       start:'2025-09-01',
       verified:true,
       photo:'images/projects/elizabeth.jpg',
-      bio:'Professional weapons safety training, security training, hazardous materials training. Tree removal. Security camera replacement certified. OSHA trained.'
+      bio:'Professional weapons safety training, security training, hazardous materials training. Drywall. Tree removal. Security camera replacement certified. Professional cleaner. OSHA trained.'
     },
     {
       id:'danielle',
       name:'Danielle',
       location:'Your City',
-      tagline:'Registered dietitian • Homeowner • Union member',
+      tagline:'Registered dietitian • Homeowner • Government employee',
       skills:['CPR Certified','Pet care','Property Check-ins','Gapsitting'],
       start:'2025-09-01',
       verified:true,
@@ -747,12 +749,12 @@
       id:'john',
       name:'John',
       location:'Your City',
-      tagline:'State-licensed • Background checked • Dealer\'s license • Homeowner • Union member',
-      skills:['Plumbing','Painting','Water Removal','Pet care','Property Check-ins','Handyman'],
+      tagline:'State licensed (NC) • Background checked • Homeowner • Union member',
+      skills:['Plumbing','Painting','Water Removal','Pet care','Property Check-ins','Handyman','Cleaning'],
       start:'2025-09-01',
       verified:true,
       photo:'images/projects/john.PNG',
-      bio:'State licensing and background checked. Gambling/dealer\'s license. Water remediation and removal. Painting. Pet owner 15+ years. Security camera replacement certified.'
+      bio:'State licensed (NC), background checked. Dealer\'s license. Water remediation and removal. Truck hauling, trailer hookups, long distance moves. Professional cleaner. Organic and hypoallergenic professional care and cleaning. Pet owner 15+ years. Security camera replacement certified.'
     },
     {
       id:'violet',
@@ -782,12 +784,13 @@
       id:'anna',
       name:'Anna',
       location:'Your City',
-      tagline:'Digital nomad • Computer science • Digital creator • Spanish • Union member',
+      tagline:'Digital nomad • Organization • Professional buyer • Vintage professional • Spanish • Union member',
       skills:['Spanish','Education','Property Check-ins','Gapsitting','Pet care'],
       start:'2025-09-01',
       verified:true,
       photo:'images/projects/anna.jpg',
-      bio:'Student. Digital creator. Pet owner 15+ years.'
+      photoContain:true,
+      bio:'Organization. Professional buyer. Vintage professional. Digital creator. Pet owner 15+ years.'
     },
   ];
 
@@ -799,6 +802,7 @@
     {id:'stairsrepair', title:"Keep entrance secured — 1 week", city:'Your City', from:'2025-09-08', to:'2025-09-15', needs:['Secure entrance','1 week presence','Keep entrance secured'], pay:[150,300], bidsLeft:3, img:'images/projects/stairsrepair.jpg', imgPlaceholder:'Stairs', description:'Short 1-week sit: keep entrance secured while repairs are scheduled. Minimal duties — presence and lock-up. Perfect for a local or someone passing through.'},
     {id:'stairsfixed', title:"Project complete: Stairs repair", city:'Your City', from:'2025-08-01', to:'2025-08-20', needs:['Stairs repair','Project complete','Showcase'], pay:[0,0], bidsLeft:0, img:'images/projects/stairsfixed.JPG', imgPlaceholder:'Stairs', showcase:true, completedBy:'Nichole123', possibleEarnings:[400,600], description:'This listing is closed. Stairs repair was completed successfully. Shown here as an example of a finished project and possible earnings for similar work.'},
     {id:'downed-tree', title:"Downed tree backyard — yard secure & cleanup", city:'Your City', from:'2025-09-20', to:'2025-10-05', needs:['Backyard','Downed tree','Yard secure','Cleanup','Photo reports'], pay:[200,450], bidsLeft:5, img:'images/projects/img_1396.jpg', imgPlaceholder:'Backyard', description:'Downed tree in backyard. Need someone to keep the yard secure, document condition with photos, and coordinate cleanup if needed. Photo reports for insurance.'},
+    {id:'downed-tree-dogs', title:"Large tree in backyard — away for summer, dog-friendly home", city:'Your City', from:'2025-06-01', to:'2025-08-31', needs:['Dog friendly','Tree removal','Oversee removal','Hauling','Trusted presence','Photo reports'], pay:[250,500], bidsLeft:5, img:'images/projects/dogswelcomedownedtree.jpg', imgPlaceholder:'Backyard', description:'There is a very large tree in the backyard. I will be away for the summer and it just fell. It\'s a dog-friendly home. I need someone to help oversee the tree removal — and if they can do extra work hauling it would save me some money — but a trusted presence is what I really need during this time.'},
   ];
 
   /* ===== Placeholder SVG generator ===== */
@@ -828,9 +832,10 @@
       el.className = 'card';
       const photoSrc = (typeof s.photo === 'string' && s.photo.startsWith('images/')) ? s.photo : s.photo;
       const photoFallback = ph(s.name);
+      const mediaClass = 'media' + (s.photoContain ? ' photo-contain' : '');
       const imgTag = typeof s.photo === 'string' && s.photo.startsWith('images/')
-        ? `<img class="media" alt="${s.name}" src="${photoSrc}" onerror="this.onerror=null;this.src='${photoFallback.replace(/'/g, "\\'")}'">`
-        : `<img class="media" alt="${s.name}" src="${s.photo}">`;
+        ? `<img class="${mediaClass}" alt="${s.name}" src="${photoSrc}" onerror="this.onerror=null;this.src='${photoFallback.replace(/'/g, "\\'")}'">`
+        : `<img class="${mediaClass}" alt="${s.name}" src="${s.photo}">`;
       const bioHtml = s.bio ? `<p class="muted small" style="margin:0;line-height:1.5">${s.bio}</p>` : '';
       el.innerHTML = `
         <div class="media-wrap">
