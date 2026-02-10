@@ -374,19 +374,19 @@
   </div>
 </section>
 
-<!-- SEARCH — SITTERS (unchanged functionality) -->
+<!-- SHOWCASE — GAPSITTERS -->
 <section id="route-search-sitters" data-route="search-sitters" hidden>
   <div class="container stack">
-    <h2>Search Gapsitters</h2>
-    <div style="position:relative;width:100%;height:0;padding-top:56.25%;box-shadow:0 2px 8px 0 rgba(63,69,81,0.16);margin-top:1.6em;margin-bottom:0.9em;overflow:hidden;border-radius:8px">
-      <iframe loading="lazy" style="position:absolute;width:100%;height:100%;top:0;left:0;border:none" src="https://www.canva.com/design/DAGzxdvYjw4/k_cBGpOTlm3V92Gw9dT43g/view?embed" allowfullscreen></iframe>
-    </div>
-    <a href="https://www.canva.com/design/DAGzxdvYjw4/k_cBGpOTlm3V92Gw9dT43g/view?utm_content=DAGzxdvYjw4&utm_campaign=designshare&utm_medium=embeds&utm_source=link" target="_blank" rel="noopener" style="color:#111;font-weight:600;text-decoration:underline">Who are the gapsitters?</a>
+    <h2>Meet some of our trusted, verified people</h2>
+    <p class="muted" style="max-width:720px;font-size:1.05em">From serving the film industry — actors and producers — to property watch and hands-on skills, our gapsitters are here to help protect your place and communicate clearly. Verified enough to get into your home.</p>
+    <p class="small muted">We’d like to keep growing our team. <strong>Would you like to be a sitter?</strong> Tell us a few skills and why you’d like to join (and share a photo if you’d like). We’ll review and get in touch.</p>
+    <a class="btn brand" href="https://docs.google.com/forms/d/e/1FAIpQLSeI9zDl-txqgFH1Z8VXVMEFBurp4f93DxGbmJ_fsM7xUStl-w/viewform?usp=publish-editor" target="_blank" rel="noopener">Apply to become a gapsitter →</a>
+    <p class="small muted" style="margin-top:-8px">Submit via Google Form; responses go to our team (spreadsheet or Airtable/Supabase later).</p>
 
     <div class="grid" style="grid-template-columns:320px 1fr;gap:24px">
       <div class="card" style="padding:24px;height:fit-content">
         <div class="stack">
-          <div class="field"><label for="sit-q">Keyword</label><input id="sit-q" class="input" placeholder="plumbing, Spanish, pets…"></div>
+          <div class="field"><label for="sit-q">Keyword</label><input id="sit-q" class="input" placeholder="Spanish, CPR, plumbing, OSHA, Trust certified…"></div>
           <div class="field"><label for="sit-loc">Location</label><input id="sit-loc" class="input" placeholder="city or region"></div>
           <div class="field"><label for="sit-date">Earliest start</label><input id="sit-date" type="date" class="input"></div>
           <div class="field"><label for="sit-skills">Skill</label>
@@ -395,20 +395,23 @@
               <option>Gapsitting</option>
               <option>Property Check-ins</option>
               <option>Security</option>
+              <option>CPR Certified</option>
+              <option>Plumbing</option>
+              <option>Carpentry</option>
+              <option>Spanish</option>
+              <option>Mold Remediation</option>
+              <option>Painting</option>
+              <option>Water Removal</option>
+              <option>Food Safety</option>
+              <option>Trust Certified</option>
+              <option>Pet care</option>
+              <option>Handyman</option>
+              <option>Cleaning</option>
               <option>Remote Surveillance Setup</option>
               <option>Emergency Response</option>
-              <option>Cleaning</option>
-              <option>Handyman</option>
               <option>Lock Installation</option>
               <option>Supervising Repairs</option>
               <option>Vendor Coordination</option>
-              <option>Senior Services</option>
-              <option>Home Modifications</option>
-              <option>Medical Equipment Setup</option>
-              <option>Mobility Support</option>
-              <option>Fall Prevention</option>
-              <option>Cooking Classes</option>
-              <option>Event Hosting</option>
               <option>Translation Services</option>
               <option>Education</option>
             </select>
@@ -716,23 +719,76 @@
   /* ===== App state ===== */
   const state = { bids:{} };
 
-  /* ===== Demo data (SITTERS) ===== */
+  /* ===== Gapsitters (real team) — photos in images/projects/. Individual pages / self-edit later. ===== */
   const sampleSitters = [
+    {
+      id:'elizabeth',
+      name:'Elizabeth',
+      location:'Your City',
+      tagline:'Union member • Homeowner • Pet owner 15+ years',
+      skills:['Security','CPR Certified','Carpentry','Trust Certified','Pet care','Handyman','Property Check-ins'],
+      start:'2025-09-01',
+      verified:true,
+      photo:'images/projects/elizabeth.jpg',
+      bio:'Professional weapons safety training, security training, hazardous materials training. Tree removal. Security camera replacement certified. OSHA trained.'
+    },
+    {
+      id:'danielle',
+      name:'Danielle',
+      location:'Your City',
+      tagline:'Registered dietitian • Homeowner • Union member',
+      skills:['CPR Certified','Pet care','Property Check-ins','Gapsitting'],
+      start:'2025-09-01',
+      verified:true,
+      photo:'images/projects/danielle.jpg',
+      bio:'Certified in CPR, climbing and survival skills. Pet owner 15+ years.'
+    },
+    {
+      id:'john',
+      name:'John',
+      location:'Your City',
+      tagline:'State-licensed • Background checked • Dealer\'s license • Homeowner • Union member',
+      skills:['Plumbing','Painting','Water Removal','Pet care','Property Check-ins','Handyman'],
+      start:'2025-09-01',
+      verified:true,
+      photo:'images/projects/john.PNG',
+      bio:'State licensing and background checked. Gambling/dealer\'s license. Water remediation and removal. Painting. Pet owner 15+ years. Security camera replacement certified.'
+    },
+    {
+      id:'violet',
+      name:'Violet',
+      location:'Your City',
+      tagline:'Professional mold remediation • Trust certified • Homeowner • Union member',
+      skills:['Mold Remediation','Trust Certified','Pet care','Property Check-ins','Gapsitting'],
+      start:'2025-09-01',
+      verified:true,
+      photo:'images/projects/violet.jpg',
+      bio:'Large database and wireless networks. Trust certified. Pet owner 15+ years.'
+    },
     {
       id:'nichole',
       name:'Nichole Wleklinski',
       location:'Chicago, IL (mobile)',
-      tagline:'MBA candidate • Propmaster • Verified Housesitter • Homeowner & Landlord',
-      skills:['Handyman','Pet care','Cleaning','Security'],
+      tagline:'Master in Management (UIUC) • UGA • Landlord • Homeowner • Food safety certified • Trust certified',
+      skills:['Spanish','Trust Certified','Food Safety','Pet care','Security','Handyman','Property Check-ins'],
       start:'2025-09-25',
       verified:true,
-      photo: ph('Nichole'),
+      photo:'images/projects/nichole.jpg',
+      bio:'Professional weapons safety training. Union member. OSHA trained. Pet owner 15+ years. Security camera replacement certified. Film industry — actors and producers.',
       linkedin:'https://www.linkedin.com/in/nicholewleklinski',
       video:'https://vimeo.com/1120936886?share=copy'
     },
-    {id:'s1', name:'Riley G.', location:'Albuquerque, NM', tagline:'Licensed Realtor • Great communicator', skills:['Plumbing','Security','Cleaning'], start:'2025-09-05', photo: ph('Sitter'), verified:false},
-    {id:'s2', name:'Ash D.', location:'Santa Fe, NM', tagline:'Retired Teacher', skills:['Painting','Windows','Locks'], start:'2025-09-10', photo: ph('Veteran'), verified:false},
-    {id:'s3', name:'Maya L.', location:'Denver, CO', tagline:'Security checks • Reports', skills:['Security','Cleaning'], start:'2025-09-03', photo: ph('Grad Student'), verified:false},
+    {
+      id:'anna',
+      name:'Anna',
+      location:'Your City',
+      tagline:'Digital nomad • Computer science • Digital creator • Spanish • Union member',
+      skills:['Spanish','Education','Property Check-ins','Gapsitting','Pet care'],
+      start:'2025-09-01',
+      verified:true,
+      photo:'images/projects/anna.jpg',
+      bio:'Student. Digital creator. Pet owner 15+ years.'
+    },
   ];
 
   /* ===== Demo data (PROJECTS) ===== */
@@ -758,7 +814,8 @@
     const date = (document.getElementById('sit-date')?.value||'');
     const skill = (document.getElementById('sit-skills')?.value||'');
     const list = sampleSitters.filter(s=>{
-      const okQ = !q || s.name.toLowerCase().includes(q) || s.tagline.toLowerCase().includes(q) || s.skills.join(' ').toLowerCase().includes(q);
+      const searchText = [s.name, s.tagline, (s.bio||''), s.skills.join(' ')].join(' ').toLowerCase();
+      const okQ = !q || searchText.includes(q);
       const okLoc = !loc || s.location.toLowerCase().includes(loc);
       const okDate = !date || s.start >= date;
       const okSkill = !skill || s.skills.includes(skill);
@@ -769,9 +826,15 @@
     list.forEach(s=>{
       const el = document.createElement('div');
       el.className = 'card';
+      const photoSrc = (typeof s.photo === 'string' && s.photo.startsWith('images/')) ? s.photo : s.photo;
+      const photoFallback = ph(s.name);
+      const imgTag = typeof s.photo === 'string' && s.photo.startsWith('images/')
+        ? `<img class="media" alt="${s.name}" src="${photoSrc}" onerror="this.onerror=null;this.src='${photoFallback.replace(/'/g, "\\'")}'">`
+        : `<img class="media" alt="${s.name}" src="${s.photo}">`;
+      const bioHtml = s.bio ? `<p class="muted small" style="margin:0;line-height:1.5">${s.bio}</p>` : '';
       el.innerHTML = `
         <div class="media-wrap">
-          <img class="media" alt="${s.name}" src="${s.photo}">
+          ${imgTag}
           ${s.verified ? badgeHTML() : ''}
         </div>
         <div class="content stack">
@@ -780,9 +843,10 @@
             <span class="pill">Start: ${fmtDate(s.start)}</span>
           </div>
           <div class="small muted">${s.location}</div>
+          <p class="small" style="margin:0;font-weight:600;color:var(--ink)">${s.tagline}</p>
           <div class="row" style="flex-wrap:wrap;gap:8px">${s.skills.map(x=>`<span class='pill'>${x}</span>`).join('')}</div>
-          <p class="muted small">${s.tagline}</p>
-          <div class="row" style="flex-wrap:wrap; gap:10px">
+          ${bioHtml}
+          <div class="row" style="flex-wrap:wrap; gap:10px; margin-top:8px">
             <a class="btn" href="mailto:help@patchworkwithus.com?subject=Intro Request: ${encodeURIComponent(s.name)}">Request intro</a>
             ${s.linkedin ? `<a class="btn secondary" href="${s.linkedin}" target="_blank" rel="noopener">🔗 LinkedIn</a>`:''}
             ${s.video ? `<a class="btn brand" href="${s.video}" target="_blank" rel="noopener">🛠️ Handywoman video</a>`:''}
