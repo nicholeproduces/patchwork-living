@@ -85,6 +85,7 @@
   .card:hover{ transform:translateY(-3px); box-shadow:var(--shadow-md); }
   .card .media-wrap{ position:relative; overflow:hidden }
   .card > .media, .media-wrap > .media{ width:100%; aspect-ratio:16/10; background:#f0f0f0; display:block; object-fit:cover; }
+  .card .media.photo-contain{ object-fit:contain; }
   .card .content{ padding:22px }
 
   .chip{ display:inline-flex; align-items:center; gap:6px; border-radius:999px; background:#111; color:#fff; padding:8px 12px; font-size:13px; font-weight:700; }
@@ -707,30 +708,23 @@
   /* ===== App state ===== */
   const state = { bids:{} };
 
-  /* ===== Demo data (SITTERS) ===== */
+  /* ===== Gapsitters (real team) — photos in images/projects/ ===== */
   const sampleSitters = [
-    {
-      id:'nichole',
-      name:'Nichole Wleklinski',
-      location:'Chicago, IL (mobile)',
-      tagline:'MBA candidate • Propmaster • Verified Housesitter • Homeowner & Landlord',
-      skills:['Handyman','Pet care','Cleaning','Security'],
-      start:'2025-09-25',
-      verified:true,
-      photo: ph('Nichole'),
-      linkedin:'https://www.linkedin.com/in/nicholewleklinski',
-      video:'https://vimeo.com/1120936886?share=copy'
-    },
-    {id:'s1', name:'Riley G.', location:'Albuquerque, NM', tagline:'Licensed Realtor • Great communicator', skills:['Plumbing','Security','Cleaning'], start:'2025-09-05', photo: ph('Sitter'), verified:false},
-    {id:'s2', name:'Ash D.', location:'Santa Fe, NM', tagline:'Retired Teacher', skills:['Painting','Windows','Locks'], start:'2025-09-10', photo: ph('Veteran'), verified:false},
-    {id:'s3', name:'Maya L.', location:'Denver, CO', tagline:'Security checks • Reports', skills:['Security','Cleaning'], start:'2025-09-03', photo: ph('Grad Student'), verified:false},
+    {id:'elizabeth', name:'Elizabeth', location:'Atlanta', tagline:'Union member • Homeowner • Pet owner 15+ years', skills:['Security','CPR Certified','Carpentry','Drywall','Trust Certified','Pet care','Handyman','Property Check-ins','Cleaning'], start:'2025-09-01', verified:true, photo:'images/projects/elizabeth.jpg', photoFallbackText:'Elizabeth', bio:'Professional weapons safety training, security training, hazardous materials training. Drywall. Tree removal. Security camera replacement certified. Professional cleaner. OSHA trained.'},
+    {id:'danielle', name:'Danielle', location:'Albuquerque', tagline:'Registered dietitian • Homeowner • Government employee', skills:['CPR Certified','Pet care','Property Check-ins','Gapsitting'], start:'2025-09-01', verified:true, photo:'images/projects/danielle.jpg', photoFallbackText:'Danielle', bio:'Certified in CPR, climbing and survival skills. Pet owner 15+ years.'},
+    {id:'john', name:'John', location:'Atlanta', tagline:'State licensed (NC) • Background checked • Homeowner • Union member', skills:['Plumbing','Painting','Water Removal','Pet care','Property Check-ins','Handyman','Cleaning'], start:'2025-09-01', verified:true, photo:'images/projects/john.PNG', photoFallbackText:'John', bio:'State licensed (NC), background checked. Gaming license (State of NC). Water remediation and removal. Truck hauling, trailer hookups, long distance moves. Professional cleaner. Organic and hypoallergenic professional care and cleaning. Pet owner 15+ years. Security camera replacement certified.'},
+    {id:'violet', name:'Violet', location:'Your City (mobile)', tagline:'Professional mold remediation • Trust certified • Homeowner • Union member', skills:['Mold Remediation','Trust Certified','Pet care','Property Check-ins','Gapsitting'], start:'2025-09-01', verified:true, photo:'images/projects/violet.jpg', photoFallbackText:'Violet', bio:'Large database and wireless networks. Trust certified. Pet owner 15+ years.'},
+    {id:'nichole', name:'Nichole Wleklinski', location:'Mexico City (mobile)', tagline:'Master in Management (UIUC) • Landlord • Homeowner • Food safety certified • Trust certified', skills:['Spanish','Trust Certified','Food Safety','Pet care','Security','Handyman','Property Check-ins'], start:'2025-09-25', verified:true, photo:'images/projects/nichole.jpg', photoFallbackText:'Nichole', bio:'Professional weapons safety training. Union member. OSHA trained. Pet owner 15+ years. Security camera replacement certified. Film industry — actors and producers.', linkedin:'https://www.linkedin.com/in/nicholewleklinski', video:'https://vimeo.com/1120936886?share=copy'},
+    {id:'anna', name:'Anna', location:'Atlanta (mobile)', tagline:'Digital nomad • Organization • Professional buyer • Vintage professional • Spanish • Union member', skills:['Spanish','Education','Property Check-ins','Gapsitting','Pet care'], start:'2025-09-01', verified:true, photo:'images/projects/anna.jpg', photoFallbackText:'Anna', photoContain:true, bio:'Organization. Professional buyer. Vintage professional. Digital creator. Pet owner 15+ years.'},
   ];
 
-  /* ===== Demo data (PROJECTS) ===== */
+  /* ===== Demo data (PROJECTS) — images in images/projects/ ===== */
   const sampleProjects = [
-    {id:'house-demo', title:"My House — Aug 13 to Sept 30", city:'Your City', from:'2025-08-13', to:'2025-09-30', needs:['Full-time presence','Install cameras','Install keycode locks'], pay:[400,800], bidsLeft:4, img: null},
-    {id:'p2', title:'Duplex watch — weekends only', city:'Chicago, IL', from:'2025-09-12', to:'2025-10-01', needs:['Check mail','Light yardwork'], pay:[150,300], bidsLeft:5, img: ph('Duplex')},
-    {id:'p3', title:'Condo: package pickup & plants', city:'Portland, OR', from:'2025-09-08', to:'2025-10-15', needs:['Packages','Plants','Photo reports'], pay:[100,250], bidsLeft:2, img: ph('Condo')},
+    {id:'johnhouse', title:"Secure house — oversee construction, maintain contractor hours", city:'Your City', from:'2025-08-13', to:'2025-09-30', needs:['Secure house','Oversee construction','Maintain contractor hours','Full-time presence'], pay:[400,800], bidsLeft:4, img:'images/projects/johnhouse.jpeg', imgFallbackText:'House', description:'Property owner needs a responsible presence during construction. Oversee contractor hours, keep the house secure, and provide brief photo reports. Ideal for someone who can be on-site during work windows.'},
+    {id:'dorothyhouse', title:"Property watch — secure house, contractor oversight", city:'Your City', from:'2025-09-01', to:'2025-10-15', needs:['Secure house','Oversee construction','Maintain contractor hours','Photo reports'], pay:[350,700], bidsLeft:5, img:'images/projects/dorothyhouse.jpg', imgFallbackText:'House', description:'Ongoing property watch with contractor oversight. Maintain security, coordinate with trades as needed, and send regular photo updates. Stipend negotiable based on scope.'},
+    {id:'stairsrepair', title:"Keep entrance secured — 1 week", city:'Your City', from:'2025-09-08', to:'2025-09-15', needs:['Secure entrance','1 week presence','Keep entrance secured'], pay:[150,300], bidsLeft:3, img:'images/projects/stairsrepair.jpg', imgFallbackText:'Stairs', description:'Short 1-week sit: keep entrance secured while repairs are scheduled. Minimal duties — presence and lock-up. Perfect for a local or someone passing through.'},
+    {id:'stairsfixed', title:"Project complete: Stairs repair", city:'Your City', from:'2025-08-01', to:'2025-08-20', needs:['Stairs repair','Project complete','Showcase'], pay:[0,0], bidsLeft:0, img:'images/projects/stairsfixed.JPG', imgFallbackText:'Stairs', showcase:true, completedBy:'Nichole123', possibleEarnings:[400,600], description:'This listing is closed. Stairs repair was completed successfully. Shown here as an example of a finished project and possible earnings for similar work.'},
+    {id:'downed-tree-dogs', title:"Large tree in backyard — away for summer, dog-friendly home", city:'Your City', from:'2025-06-01', to:'2025-08-31', needs:['Dog friendly','Tree removal','Oversee removal','Hauling','Trusted presence','Photo reports'], pay:[250,500], bidsLeft:5, img:'images/projects/dogswelcomedownedtree.jpg', imgFallbackText:'Backyard', description:"There is a very large tree in the backyard. I will be away for the summer and it just fell. It's a dog-friendly home. I need someone to help oversee the tree removal — and if they can do extra work hauling it would save me some money — but a trusted presence is what I really need during this time."},
   ];
 
   /* ===== Placeholder SVG generator ===== */
@@ -746,7 +740,8 @@
     const date = (document.getElementById('sit-date')?.value||'');
     const skill = (document.getElementById('sit-skills')?.value||'');
     const list = sampleSitters.filter(s=>{
-      const okQ = !q || s.name.toLowerCase().includes(q) || s.tagline.toLowerCase().includes(q) || s.skills.join(' ').toLowerCase().includes(q);
+      const searchText = [s.name, s.tagline, (s.bio||''), s.skills.join(' ')].join(' ').toLowerCase();
+      const okQ = !q || searchText.includes(q);
       const okLoc = !loc || s.location.toLowerCase().includes(loc);
       const okDate = !date || s.start >= date;
       const okSkill = !skill || s.skills.includes(skill);
@@ -759,7 +754,7 @@
       el.className = 'card';
       el.innerHTML = `
         <div class="media-wrap">
-          <img class="media" alt="${s.name}" src="${s.photo}">
+          <img class="media ${s.photoContain ? 'photo-contain' : ''}" alt="${s.name}" src="${s.photo}" data-fallback="${ph(s.photoFallbackText || s.name)}" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.onerror=null}">
           ${s.verified ? badgeHTML() : ''}
         </div>
         <div class="content stack">
@@ -770,6 +765,7 @@
           <div class="small muted">${s.location}</div>
           <div class="row" style="flex-wrap:wrap;gap:8px">${s.skills.map(x=>`<span class='pill'>${x}</span>`).join('')}</div>
           <p class="muted small">${s.tagline}</p>
+          ${s.bio ? `<p class="muted small" style="margin:0">${s.bio}</p>` : ''}
           <div class="row" style="flex-wrap:wrap; gap:10px">
             <a class="btn" href="mailto:help@patchworkwithus.com?subject=Intro Request: ${encodeURIComponent(s.name)}">Request intro</a>
             ${s.linkedin ? `<a class="btn secondary" href="${s.linkedin}" target="_blank" rel="noopener">🔗 LinkedIn</a>`:''}
@@ -809,17 +805,23 @@
       const el = document.createElement('div');
       el.className = 'card';
       const bidsLeft = state.bids[p.id] != null ? state.bids[p.id] : p.bidsLeft;
-      const img = p.img || ph('House');
+      const img = p.img || ph(p.imgFallbackText || 'House');
+      const isShowcase = p.showcase === true;
+      const payChip = isShowcase ? 'Unavailable — completed' : `${p.pay[0]}–${p.pay[1]} / mo`;
+      const bidSection = isShowcase ? '' : `<button class="btn brand" ${bidsLeft<=0?'disabled':''} onclick="openBidModal('${p.id}')">Bid</button>`;
+      const bidsPill = isShowcase ? 'Showcase' : `Bids left: ${bidsLeft}`;
+      const completedLine = isShowcase && p.completedBy ? `Completed by ${p.completedBy}${p.possibleEarnings && p.possibleEarnings[0] != null ? ` · Possible earnings: $${p.possibleEarnings[0]}–$${p.possibleEarnings[1]}` : ''}` : '';
       el.innerHTML = `
-        <img class="media" alt="${p.title}" src="${img}">
+        <img class="media" alt="${p.title}" src="${img}" data-fallback="${ph(p.imgFallbackText || 'House')}" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.onerror=null}">
         <div class="content stack">
           <div class="row" style="justify-content:space-between;align-items:center">
             <strong>${p.title}</strong>
-            <span class="pill"><strong>Bids left:</strong> ${bidsLeft}</span>
+            <span class="pill">${bidsPill}</span>
           </div>
           <div class="small muted">${p.city} • ${fmtDate(p.from)} → ${fmtDate(p.to)}</div>
+          ${completedLine ? `<div class="small muted">${completedLine}</div>` : ''}
           <div class="row" style="flex-wrap:wrap;gap:8px">${p.needs.map(x=>`<span class='pill'>${x}</span>`).join('')}</div>
-          <div class="row"><span class="chip brand">${p.pay[0]}–${p.pay[1]} / mo</span><button class="btn brand" ${bidsLeft<=0?'disabled':''} onclick="openBidModal('${p.id}')">Bid</button></div>
+          <div class="row"><span class="chip brand">${payChip}</span>${bidSection}</div>
         </div>`;
       wrap.appendChild(el);
     });
