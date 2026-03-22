@@ -18,10 +18,10 @@
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
   :root{
-    /* Keep your palette, but you can swap --brand if you want a teal accent later */
-    --color-1:#FEF9E7; --color-2:#FCF3CF; --color-3:#F9E79F; --color-4:#F7DC6F; --color-5:#F4D03F;
-    --color-6:#F1C40F; --color-7:#D4AC0D; --color-8:#B7950B; --color-9:#9A7D0A; --color-10:#7D6608;
-    --brand:var(--color-6); --brand-ink:#111; --ink:#141414; --muted:#FEF9E7; --card:#fff; --line:#e8e8e8;
+    /* Housing / trust / operations — soft off-white + muted yellow accents */
+    --color-1:#FDFBF6; --color-2:#FAF6E8; --color-3:#F5EEC8; --color-4:#F0E6B8; --color-5:#E8D98A;
+    --color-6:#D4C26A; --color-7:#B7950B; --color-8:#9A7D0A; --color-9:#7D6608; --color-10:#5C4D06;
+    --brand:var(--color-6); --brand-ink:#1a1a1a; --ink:#1c1c1c; --muted:#FAF6E8; --card:#fffef9; --line:#e6e2d8;
     --ok:#1f8f62; --warn:#845a00; --danger:#ad2131; --radius:20px; --maxw:1200px;
     --shadow-sm:0 2px 8px rgba(0,0,0,.04);
     --shadow-md:0 4px 16px rgba(0,0,0,.08);
@@ -32,7 +32,7 @@
   html,body{
     margin:0; padding:0;
     font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    color:var(--ink); background:#fafafa; line-height:1.6;
+    color:var(--ink); background:#f7f5f0; line-height:1.6;
     -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
@@ -57,7 +57,7 @@
   }
 
   .btn{
-    appearance:none; border:0; border-radius:14px; background:#111; color:#fff;
+    appearance:none; border:0; border-radius:14px; background:#1a1a1a; color:#fff;
     padding:12px 20px; font-weight:700; font-size:15px; cursor:pointer;
     box-shadow:var(--shadow-md); transition:all .2s ease; text-decoration:none;
     display:inline-flex; align-items:center; justify-content:center; gap:8px; white-space:nowrap;
@@ -88,12 +88,12 @@
   .card .media.photo-contain{ object-fit:contain; }
   .card .content{ padding:22px }
 
-  .chip{ display:inline-flex; align-items:center; gap:6px; border-radius:999px; background:#111; color:#fff; padding:8px 12px; font-size:13px; font-weight:700; }
+  .chip{ display:inline-flex; align-items:center; gap:6px; border-radius:999px; background:#2a2825; color:#fff; padding:8px 12px; font-size:13px; font-weight:700; }
   .chip.brand{ background:var(--brand); color:var(--brand-ink); }
 
   header{
     position:sticky; top:0; z-index:50;
-    background:rgba(255,255,255,.95); backdrop-filter:saturate(1.8) blur(20px);
+    background:rgba(255,254,249,.96); backdrop-filter:saturate(1.8) blur(20px);
     border-bottom:1px solid var(--line); box-shadow:var(--shadow-sm);
   }
   .nav{ display:flex; align-items:center; justify-content:space-between; gap:16px; padding:10px 20px; max-width:var(--maxw); margin:0 auto; }
@@ -104,7 +104,7 @@
   nav a{ color:#444; text-decoration:none; padding:9px 12px; border-radius:10px; font-weight:600; font-size:14px; transition:all .2s; }
   nav a.active,nav a:hover{ background:var(--muted); color:#111; }
 
-  .hero{ padding:56px 0 40px; background:linear-gradient(180deg,#fff 0%,#fff 40%,var(--muted) 100%); }
+  .hero{ padding:56px 0 40px; background:linear-gradient(180deg,#fffef9 0%,#faf8f2 50%,var(--muted) 100%); }
   .hero h1{ font-size:clamp(30px,4.4vw,48px); margin:0 0 12px; line-height:1.2; font-weight:700; letter-spacing:-.01em; }
   .hero p{ font-size:clamp(16px,1.5vw,19px); color:#555; line-height:1.6; }
 
@@ -165,11 +165,11 @@
     </div>
     <nav id="topnav" aria-label="Main">
       <a href="#/home" data-route-link>Home</a>
-      <a href="#/search-sitters" data-route-link>Search Gapsitters</a>
-      <a href="#/search-projects" data-route-link>Search Projects</a>
+      <a href="#/search-sitters" data-route-link>Network members</a>
+      <a href="#/search-projects" data-route-link>Example scenarios</a>
       <a href="#/how" data-route-link>How It Works</a>
       <a href="#/pricing" data-route-link>Pricing</a>
-      <a href="#/community" data-route-link>Community</a>
+      <a href="#/community" data-route-link>Market Signals</a>
       <a href="#/founder" data-route-link><!-- NEW -->Founder Services</a>
       <a href="#/join" data-route-link>Join Us</a>
       <a href="#/ai-future-vision" data-route-link>AI Vision</a>
@@ -188,27 +188,31 @@
 
       <!-- LEFT: COPY -->
       <div class="stack" style="flex:1;min-width:280px">
-        <h1>Stitched by People, Powered by Purpose</h1>
-        <p style="font-size:17px;color:#555;max-width:620px;margin:0">
-          Insurance policies assume someone is living in the home. When no one is there, coverage can change.
+        <span class="eyebrow" style="margin-bottom:4px">Pilot model · structured occupancy &amp; asset protection</span>
+        <h1>Structured occupancy for vacant and unattended properties</h1>
+        <p style="font-size:17px;color:#444;max-width:640px;margin:0;line-height:1.55">
+          <strong>Patchwork Living</strong> is a structured occupancy and asset protection network for properties that are vacant or temporarily unattended — not only land banks. It connects owners and institutions with trusted, vetted people who can provide stabilization, monitoring, light property tasks, and documentation-ready accountability.
         </p>
-        <p style="font-size:18px;color:#333;max-width:620px;margin:0;font-weight:600">
-          Liability coverage. Verified activity. Real accountability.
+        <p style="font-size:16px;color:#555;max-width:640px;margin:10px 0 0 0">
+          <strong>Who it serves:</strong> homeowners, landlords, and institutions managing vacancy — including municipalities, housing portfolios, and seasonal or turnover gaps.
         </p>
-        <p style="font-size:16px;color:#555;max-width:620px;line-height:1.55;margin:8px 0 0 0">
-          We keep homes active between occupants with certified presence, photo-verified inspections, and utility coordination — so a “safe, empty home” doesn’t quietly void your coverage.
+        <p style="font-size:15px;color:#666;max-width:640px;margin:0;font-style:italic;border-left:3px solid var(--color-5);padding-left:12px">
+          Insurance policies assume someone is living in the home. When no one is there, coverage can change. Structured occupancy and documented activity help protect the asset.
+        </p>
+        <p style="font-size:14px;color:#666;max-width:640px;margin:12px 0 0 0">
+          We are <strong>building the pilot model</strong> — currently developing pilot partnerships and seeking early partners with properties, portfolios, or public programs. This is not a finished consumer app or a live public marketplace.
         </p>
 
         <div class="row" style="margin-top:14px;gap:10px">
-          <a class="btn big brand block-sm" href="#/how">Safety &amp; Verification</a>
-          <a href="#/community" class="btn big secondary block-sm">Voice of the Community</a>
-          <a href="https://vimeo.com/1134009534?share=copy&fl=sv&fe=ci" target="_blank" rel="noopener" class="btn big block-sm">Watch Walkthrough</a>
+          <a class="btn big brand block-sm" href="#/how">How verification works</a>
+          <a href="#/community" class="btn big secondary block-sm">Market signals</a>
+          <a href="https://vimeo.com/1134009534?share=copy&fl=sv&fe=ci" target="_blank" rel="noopener" class="btn big block-sm">Watch overview</a>
         </div>
 
         <!-- Risk punch -->
         <div class="card" style="margin-top:18px">
           <div class="content stack" style="gap:14px">
-            <h3 style="margin:0;font-size:clamp(20px,2.4vw,26px);font-weight:700;letter-spacing:-.02em;line-height:1.25">Vacancy Can Void Your Insurance</h3>
+            <h3 style="margin:0;font-size:clamp(20px,2.4vw,26px);font-weight:700;letter-spacing:-.02em;line-height:1.25">Vacancy can affect coverage</h3>
             <p style="margin:0;font-size:15px;line-height:1.6;color:#333">
               Most homeowners insurance policies assume someone is living in the property.
             </p>
@@ -220,11 +224,12 @@
             </p>
             <p style="margin:0 0 2px 0;font-size:15px;line-height:1.5;color:#333">This commonly happens during:</p>
             <ul style="margin:0;padding-left:20px;font-size:15px;line-height:1.7;color:#333">
-              <li>Travel</li>
-              <li>Renovations</li>
+              <li>Travel or extended absence</li>
+              <li>Renovations and pre-sale vacancy</li>
+              <li>Rental turnover gaps</li>
               <li>Seasonal homes</li>
-              <li>Probate delays</li>
-              <li>Vacant rentals</li>
+              <li>Probate and estate transitions</li>
+              <li>Institutional or municipal holdings</li>
             </ul>
             <p style="margin:0;font-size:15px;line-height:1.6;color:#333;font-weight:600">
               Even a "safe, empty home" can unintentionally put your asset at risk.
@@ -247,85 +252,101 @@
 
 <section id="route-home-services" data-route="home">
   <div class="container stack">
-    <h2>What We Provide</h2>
+    <h2>What the pilot model provides</h2>
+    <p class="muted" style="max-width:820px;margin:0 0 8px 0">Operational building blocks for <strong>structured occupancy</strong>, <strong>asset protection</strong>, and a <strong>trusted network</strong> of vetted members — designed for documentation and accountability, not lifestyle marketing.</p>
     <div class="grid cards">
       <div class="card">
         <div class="content stack">
-          <h3>Verified Occupancy Certification</h3>
-          <p class="muted small">A digitally signed occupancy/tenancy letter confirming human presence for insurance compliance — ideal during travel, renovations, estate transitions, or between-tenant gaps.</p>
+          <h3>Occupancy &amp; compliance documentation</h3>
+          <p class="muted small">Digitally signed letters and records that confirm structured human presence where policies and programs require it — travel, renovation, estate, rental turnover, or institutional vacancy.</p>
         </div>
       </div>
       <div class="card">
         <div class="content stack">
-          <h3>Multi-Point Inspection (with Photos)</h3>
-          <p class="muted small">Time-stamped reports with photos of key systems &amp; security checks. Tailored to owner needs: winterization (snowbird), pre-HUD/pre-inspector checks, or routine condition reviews.</p>
+          <h3>Property stabilization &amp; inspection reports</h3>
+          <p class="muted small">Time-stamped, photo-backed checks of systems and security — scoped to the property (e.g. seasonal vacancy, pre-sale, pre-inspection, or municipal stabilization needs).</p>
         </div>
       </div>
       <div class="card">
         <div class="content stack">
-          <h3>Utility &amp; Device Coordination</h3>
-          <p class="muted small">With written authorization, your local representative coordinates water/power/Wi-Fi hookups or transfers, enables camera monitoring, documents meter readings, meets technicians, and verifies activation. <em>We’re establishing partnerships with utility providers to streamline reactivation and reduce vacancy fees.</em></p>
+          <h3>Utility &amp; systems coordination</h3>
+          <p class="muted small">With written authorization, network members coordinate hookups, metering, and technician access so the property stays functional and observable — reducing unmanaged vacancy risk.</p>
         </div>
       </div>
       <div class="card">
         <div class="content stack">
-          <h3>Dedicated Local Representative</h3>
-          <p class="muted small">One Face-ID verified, background-checked point of contact — a temporary property manager who communicates clearly, executes a task list, and provides incident-ready response.</p>
+          <h3>Single accountable contact</h3>
+          <p class="muted small">A verified, background-checked point of contact for the pilot — clear communication, defined tasks, and incident-ready coordination (not ad-hoc gig work).</p>
         </div>
       </div>
-      <div class="card" style="background:linear-gradient(180deg,#f7fffb,#fff)">
+      <div class="card" style="background:linear-gradient(180deg,#faf8f2,#fffef9)">
         <div class="content stack">
-          <h3>Owner Dashboard</h3>
-          <p class="muted small">Transparent updates, digital reports, and proof of compliance at your fingertips — database to PDF for insurer or property manager submission.</p>
+          <h3>Reporting for owners &amp; institutions</h3>
+          <p class="muted small">Structured updates and exportable documentation for insurers, asset managers, and program leads — built for operational review, not consumer “reviews.”</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- COMMUNITY / VOICE OF THE COMMUNITY -->
+<!-- MARKET CONTEXT / CREDIBILITY (home) -->
+<section id="route-home-market" data-route="home">
+  <div class="container stack">
+    <span class="eyebrow">Indicators · confirm sources before citing externally</span>
+    <h2>Market context</h2>
+    <p class="muted" style="max-width:880px;font-size:16px">
+      Existing platforms and communities already show large pools of people engaged in <em>adjacent</em> behaviors — property interest, flexible work, and vetted service relationships. Patchwork Living is not claiming those audiences as users; these are <strong>context signals</strong> for why a structured network is plausible. Figures below are placeholders or broad industry estimates — <strong>verify against primary sources</strong> before public use.
+    </p>
+    <div class="grid cards" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+      <div class="card"><div class="content stack"><h4>Creative real estate investors</h4><p class="muted small">Large online communities (e.g. 176K+ members in some creative-RE groups) suggest sustained interest in property-adjacent participation — <em>source confirmation needed.</em></p></div></div>
+      <div class="card"><div class="content stack"><h4>House-sitting communities</h4><p class="muted small">Facebook groups in this space often report tens of thousands of members (e.g. 33K+ in some groups) — useful only as a scale reference, not as Patchwork adoption. <em>Confirm group name and count.</em></p></div></div>
+      <div class="card"><div class="content stack"><h4>Vetted care &amp; service marketplaces</h4><p class="muted small">Platforms like Care.com illustrate demand for background-checked, in-home services at national scale — analogous trust infrastructure, different use case.</p></div></div>
+      <div class="card"><div class="content stack"><h4>Vacant housing (national)</h4><p class="muted small">Census and industry analyses often cite millions of vacant units; exact definitions differ (seasonal, for-sale, other). Use Census table citations when publishing.</p></div></div>
+    </div>
+    <p class="small muted" style="margin:0">U.S. Census Bureau (ACS, vacancy); LendingTree and others republish Census summaries — label charts clearly. Patchwork is a pilot; these indicators do not imply current user base.</p>
+  </div>
+</section>
+
+<!-- MARKET SIGNALS / DEMAND (was Voice of the Community) -->
 <section id="route-community" data-route="community" hidden>
   <div class="container stack">
-    <span class="eyebrow">Built from backlash, not buzzwords</span>
-    <h2>Voice of the Community</h2>
+    <span class="eyebrow">Strategic context</span>
+    <h2>Market signals &amp; why this network matters</h2>
     <p class="muted" style="max-width:880px;font-size:16px">
-      House-sitting users are tired of surprise booking fees, vague liability, and “mutual exchange” marketing that doesn’t match reality. 
-      Patchwork is being shaped by full-time sitters, homeowners, and landlords who want clear protections, real documentation, and fair pay.
+      Demand is fragmented: owners need <strong>trusted presence</strong> and <strong>documented accountability</strong> during vacancy; experienced people seek <strong>intermittent, well-scoped roles</strong> tied to property stabilization — not a lifestyle travel product. Patchwork Living is designing a <strong>pilot-stage network</strong> to align those needs with structured occupancy and asset protection.
     </p>
 
     <div class="grid cards" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
       <div class="card">
         <div class="content stack">
-          <h3>What sitters keep saying</h3>
+          <h3>Market signals</h3>
           <ul class="small muted">
-            <li>No surprise booking fees stacked on top of memberships.</li>
-            <li>Ability to block homeowners and filter out unsafe or exploitative sits.</li>
-            <li>Clear expectations on vet bills, wear-and-tear, and emergency costs.</li>
-            <li>Training, not guesswork — especially for older or medically fragile pets.</li>
+            <li>Insurance and lender rules often treat extended vacancy differently from occupied use — owners need clarity and proof, not anecdotes.</li>
+            <li>Public and institutional portfolios accumulate vacant units that need stabilization, monitoring, and compliant documentation — not ad-hoc arrangements.</li>
+            <li>Flexible and remote work has expanded who can take on defined, local accountability windows — if the model is explicit and vetted.</li>
           </ul>
         </div>
       </div>
 
       <div class="card">
         <div class="content stack">
-          <h3>What owners keep saying</h3>
+          <h3>Existing demand</h3>
           <ul class="small muted">
-            <li>They want reliable, repeat sitters — not a new stranger every time.</li>
-            <li>They’re confused about insurance rules when homes sit “safely empty.”</li>
-            <li>They don’t want sitters secretly carrying all the liability risk.</li>
-            <li>They need better filters: family-friendly, car use, clear location, realistic timeframes.</li>
+            <li>Owners and asset managers ask for repeatability: known standards, not a new unknown contact for every gap.</li>
+            <li>Portfolio and municipal holders need <strong>property stabilization</strong> language and audit trails — aligned with program requirements where applicable.</li>
+            <li>People with relevant skills want fair scope, safety, and transparent liability — consistent with a <strong>trusted network</strong>, not gig churn.</li>
           </ul>
         </div>
       </div>
 
       <div class="card">
         <div class="content stack">
-          <h3>What Patchwork is doing differently</h3>
+          <h3>Why this network (pilot direction)</h3>
           <ul class="small muted">
-            <li><strong>Listing-based, not booking-tax-based.</strong> One fee to participate, not a cut out of every agreement.</li>
-            <li><strong>Annual verification &amp; education.</strong> Background checks plus optional micro-trainings for sitters and owners.</li>
-            <li><strong>Documentation by default.</strong> Photos, checklists, and occupancy letters built for insurers and property managers.</li>
-            <li><strong>Transparent rate guidance.</strong> Suggested pay ranges so people aren’t pressured into unsafe, underpaid work.</li>
+            <li><strong>Structured roles</strong> for vetted occupants and members — scoped tasks, monitoring, emergency response pathways, and documentation by default.</li>
+            <li><strong>Verification &amp; education</strong> oriented toward property and compliance outcomes, not consumer “reviews.”</li>
+            <li><strong>Asset protection first:</strong> occupancy letters, inspections, and records suitable for insurers and institutional review.</li>
+            <li><strong>Pilot partnerships:</strong> we are building the model with early properties and aligned partners — not operating a public marketplace at scale today.</li>
           </ul>
         </div>
       </div>
@@ -335,10 +356,9 @@
     <div class="card">
       <div class="content grid" style="grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:20px">
         <div class="stack">
-          <h3>Stay in the loop as we build</h3>
+          <h3>Pilot updates</h3>
           <p class="small muted">
-            Share your email and role, and we’ll send occasional updates about pilots, beta invites, and ways to co-design the platform. 
-            No spam, no data resale — just real progress notes.
+            We are <strong>currently developing pilot partnerships</strong> and welcome interest from owners, institutions, and qualified network members. Occasional updates — no spam, no data resale.
           </p>
         </div>
         <form class="stack small" action="mailto:help@patchworkwithus.com" method="post" enctype="text/plain">
@@ -349,14 +369,15 @@
           <div class="field">
             <label for="community-role">I am a...</label>
             <select id="community-role" name="role" class="input">
-              <option value="sitter">House sitter / gapsitter</option>
-              <option value="owner">Homeowner / landlord</option>
-              <option value="both">Both / other</option>
+              <option value="member">Network member / vetted occupant (interest)</option>
+              <option value="owner">Homeowner / landlord / asset manager</option>
+              <option value="institution">Institution or municipality</option>
+              <option value="other">Other</option>
             </select>
           </div>
-          <button class="btn brand" type="submit">Get community updates</button>
+          <button class="btn brand" type="submit">Request pilot information</button>
           <p class="small muted" style="margin:0">
-            This will open your email app with a pre-filled message to <strong>help@patchworkwithus.com</strong> so you stay in full control before you hit send.
+            Opens your email app to <strong>help@patchworkwithus.com</strong> — you control the send.
           </p>
         </form>
       </div>
@@ -381,16 +402,19 @@
 <!-- SEARCH — SITTERS (unchanged functionality) -->
 <section id="route-search-sitters" data-route="search-sitters" hidden>
   <div class="container stack">
-    <h2>Search Gapsitters</h2>
+    <h2>Network members (illustrative)</h2>
+    <p class="muted" style="max-width:880px;margin:0 0 12px 0">
+      The cards below are <strong>example profiles</strong> for pilot and design conversations — not a live directory or open marketplace. We are building a <strong>trusted network</strong> of vetted occupants and property-capable members; availability and onboarding will follow pilot partnerships.
+    </p>
     <div style="position:relative;width:100%;height:0;padding-top:56.25%;box-shadow:0 2px 8px 0 rgba(63,69,81,0.16);margin-top:1.6em;margin-bottom:0.9em;overflow:hidden;border-radius:8px">
       <iframe loading="lazy" style="position:absolute;width:100%;height:100%;top:0;left:0;border:none" src="https://www.canva.com/design/DAGzxdvYjw4/k_cBGpOTlm3V92Gw9dT43g/view?embed" allowfullscreen></iframe>
     </div>
-    <a href="https://www.canva.com/design/DAGzxdvYjw4/k_cBGpOTlm3V92Gw9dT43g/view?utm_content=DAGzxdvYjw4&utm_campaign=designshare&utm_medium=embeds&utm_source=link" target="_blank" rel="noopener" style="color:#111;font-weight:600;text-decoration:underline">Who are the gapsitters?</a>
+    <a href="https://www.canva.com/design/DAGzxdvYjw4/k_cBGpOTlm3V92Gw9dT43g/view?utm_content=DAGzxdvYjw4&utm_campaign=designshare&utm_medium=embeds&utm_source=link" target="_blank" rel="noopener" style="color:#111;font-weight:600;text-decoration:underline">Overview deck (network concept)</a>
 
     <div class="grid" style="grid-template-columns:320px 1fr;gap:24px">
       <div class="card" style="padding:24px;height:fit-content">
         <div class="stack">
-          <div class="field"><label for="sit-q">Keyword</label><input id="sit-q" class="input" placeholder="plumbing, Spanish, pets…"></div>
+          <div class="field"><label for="sit-q">Keyword</label><input id="sit-q" class="input" placeholder="skills, language, property tasks…"></div>
           <div class="field"><label for="sit-loc">Location</label><input id="sit-loc" class="input" placeholder="city or region"></div>
           <div class="field"><label for="sit-date">Earliest start</label><input id="sit-date" type="date" class="input"></div>
           <div class="field"><label for="sit-skills">Skill</label>
@@ -428,16 +452,19 @@
 <!-- SEARCH — PROJECTS (kept) -->
 <section id="route-search-projects" data-route="search-projects" hidden>
   <div class="container stack">
-    <h2>Search Projects</h2>
-    <div class="card" style="background:linear-gradient(135deg, var(--muted) 0%, #fff 100%);border:2px solid var(--brand)">
+    <h2>Example property scenarios</h2>
+    <p class="muted" style="max-width:880px;margin:0 0 12px 0">
+      These listings are <strong>illustrative</strong> for the pilot model — they show how structured occupancy and stipends could be scoped in practice. They do not represent active public contracts or a live bidding marketplace.
+    </p>
+    <div class="card" style="background:linear-gradient(135deg, var(--muted) 0%, #fffef9 100%);border:2px solid var(--brand)">
       <div class="content stack">
-        <span class="eyebrow">How it works</span>
-        <h3>Place a Bid Now</h3>
-        <p class="muted">Find a project that matches your skills and availability. Click "Bid" to submit your proposal with your rate and a brief message explaining why you're the right fit. Property owners can accept up to 5 bids per listing.</p>
+        <span class="eyebrow">Pilot demo (conceptual)</span>
+        <h3>How a future match flow might work</h3>
+        <p class="muted">In a full pilot, qualified network members could respond to scoped scenarios with a rate and message. Below, “Bid” is a <strong>demo interaction only</strong> — for stakeholder walkthroughs, not live contracting.</p>
         <div class="row" style="gap:12px">
-          <span class="chip">1. Find a project</span>
-          <span class="chip">2. Click "Bid"</span>
-          <span class="chip">3. Submit your proposal</span>
+          <span class="chip">1. Review scenario</span>
+          <span class="chip">2. Demo “Bid” (placeholder)</span>
+          <span class="chip">3. Pilot intake separately</span>
         </div>
       </div>
     </div>
@@ -462,7 +489,7 @@
   <div class="modal" id="bid-modal" role="dialog" aria-modal="true" aria-label="Submit bid">
     <div class="dialog stack">
       <div class="row" style="justify-content:space-between;align-items:center">
-        <h3 style="margin:0">Submit a Bid</h3>
+        <h3 style="margin:0">Demo: expression of interest</h3>
         <button class="btn secondary" onclick="closeBidModal()">Close</button>
       </div>
       <div class="grid" style="grid-template-columns:1fr 1fr;gap:24px">
@@ -470,7 +497,7 @@
           <div class="field"><label>Your name</label><input id="bid-name" class="input" placeholder="Name"></div>
           <div class="field"><label>Monthly stipend</label><input id="bid-price" class="input" type="number" min="0" step="25" placeholder="e.g., 600"></div>
           <div class="field"><label>Message</label><textarea id="bid-msg" class="input" rows="4" placeholder="Short pitch: availability, skills, tools"></textarea></div>
-          <button class="btn brand" onclick="submitBid()">Send Bid</button>
+          <button class="btn brand" onclick="submitBid()">Send (demo only)</button>
         </div>
         <div class="card" style="padding:20px">
           <div class="stack">
@@ -486,12 +513,12 @@
 <!-- HOW IT WORKS (simplified, risk-first & verification-first) -->
 <section id="route-how" data-route="how" hidden>
   <div class="container stack">
-    <h2>How Patchwork Works</h2>
+    <h2>How the pilot model works</h2>
     <p class="muted" style="font-size:18px;max-width:880px">
-      Simple, verifiable, and insurer-friendly. We act as your authorized representative, keep humans present, and create a clean documentation trail — from on-site Face-ID check-ins to database-to-PDF reports.
+      Designed to be <strong>simple, verifiable, and documentation-forward</strong>: authorized representation, structured human presence where required, and an audit-friendly trail — from check-ins to exportable reports. Exact steps may vary by pilot partner.
     </p>
     <div class="grid cards">
-      <div class="card"><div class="content stack"><h3>1) Authorize &amp; Scope</h3><p class="muted small">Sign a short authorization naming Patchwork as your verified property representative. Choose periodic check-ins or a live-in Gapsitter. Define tasks (utilities, cameras, inspections).</p></div></div>
+      <div class="card"><div class="content stack"><h3>1) Authorize &amp; Scope</h3><p class="muted small">Short authorization naming Patchwork (or the pilot entity) as your verified representative. Define periodic check-ins or structured occupancy; scope tasks (utilities, cameras, inspections, stabilization).</p></div></div>
       <div class="card"><div class="content stack"><h3>2) Verify &amp; Activate</h3><p class="muted small">Your local, background-checked representative performs a first visit: Face-ID check-in, photo baseline, meter readings, lock/camera setups, and initial condition report.</p></div></div>
       <div class="card"><div class="content stack"><h3>3) Document &amp; Deliver</h3><p class="muted small">Every visit is time-stamped with photos. Reports compile to PDF for your insurer or PM. Emergency-ready access allows supervised entry for law enforcement or technicians.</p></div></div>
       <div class="card"><div class="content stack"><h3>4) Stay Covered</h3><p class="muted small">Insurer-friendly occupancy letters and ongoing proof of activity keep the property compliant. You see everything in your dashboard and by email.</p></div></div>
@@ -554,17 +581,17 @@
 </section>
 
 
-<!-- JOIN US (unchanged copy) -->
+<!-- JOIN US -->
 <section id="route-join" data-route="join" hidden>
   <div class="container stack">
-    <span class="eyebrow">Build with us</span>
-    <h2>Join Us — Investors, Partners, and Full-Stack Talent</h2>
+    <span class="eyebrow">Pilot-stage</span>
+    <h2>Partners, investors, and builders</h2>
     <p class="muted" style="max-width:800px">
-      We're early stage and looking for partners who share our vision of safer, more flexible housing solutions. If you bring expertise in caregiving, property, or labor systems, we'd love to collaborate on our next milestones.
+      Patchwork Living is <strong>building the model</strong> — we are seeking <strong>early partners</strong> with properties, portfolios, or public programs, plus aligned capital and technical help. Focus areas: structured occupancy, asset protection, verification, and institutional-grade documentation — not a consumer growth sprint.
     </p>
 
     <div class="grid cards">
-      <div class="card"><div class="content stack"><span class="eyebrow">Investors &amp; Partners</span><h4>Angels, equity partners, and strategic collaborations</h4><p class="muted small">We're raising an early round to accelerate our MVP roadmap (verification, escrow, and trust features). If you're active in proptech, home services, marketplaces, or payments/ID, we'd love to talk.</p><ul class="small muted"><li>Use of funds: product, security, verification, pilot markets</li><li>Go-to-market: verified supply, homeowner safety, seasonal segments</li><li>Business model: subscriptions + premium verification tiers</li></ul></div></div>
+      <div class="card"><div class="content stack"><span class="eyebrow">Investors &amp; Partners</span><h4>Angels, equity, and strategic collaborations</h4><p class="muted small">Early capital to accelerate the pilot roadmap: verification, trust infrastructure, and partner onboarding — proptech, housing, municipal programs, payments/ID welcome.</p><ul class="small muted"><li>Use of funds: product, security, verification, pilot geographies</li><li>Focus: structured occupancy, asset protection, institutional documentation</li><li>Model: subscriptions / participation fees + premium verification (TBD with pilots)</li></ul></div></div>
       <div class="card"><div class="content stack"><span class="eyebrow">Community Innovators</span><h4>Independent Living Champions</h4><p class="muted small">Real-world caregiving experience — from supporting seniors at home to helping people navigate mobility, vision, or hearing challenges.</p></div></div>
       <div class="card"><div class="content stack"><span class="eyebrow">Licensed Contractors</span><h4>Experienced Builders</h4><p class="muted small">People who understand adaptive equipment, and inclusive support outside of traditional assisted living.</p></div></div>
       <div class="card"><div class="content stack"><span class="eyebrow">Contract role</span><h4>Full-Stack Developer (MVP, security-first)</h4><p class="muted small">Help us ship a professional MVP: profiles, verified access, email/SMS notifications, verification partners, and a clean admin. Phase 2 adds automated verification and escrow.</p><ul class="small muted"><li>Frontend: Next.js/React + Tailwind (or equivalent)</li><li>Backend: Node/Nest or Django/FastAPI • Postgres</li><li>Auth/Notifications: Auth0/Clerk • SendGrid/Postmark • Twilio SMS</li><li>Storage: S3/R2 presigned uploads • basic image constraints</li><li>Nice-to-have: Stripe Connect, ID verification APIs</li></ul></div></div>
@@ -680,22 +707,23 @@
 <!-- PRICING (kept) -->
 <section id="route-pricing" data-route="pricing" hidden>
   <div class="container stack">
-    <h2>Revenue Models / Pricing</h2>
+    <h2>Revenue &amp; pricing concepts (pilot)</h2>
+    <p class="muted" style="max-width:800px">Illustrative structures for stakeholder conversations — not final public pricing.</p>
     <div class="grid cards">
-      <div class="card"><div class="content stack"><h4>Flat Stipend</h4><p class="muted small">Simple monthly stipend for presence + scoped tasks. Clear expectations, no surprises.</p></div></div>
-      <div class="card"><div class="content stack"><h4>One-Time Check-ins</h4><p class="muted small">Base presence + add-ons (locks, camera installations, yard). Snowbird lockdowns, squatter proofing. Sitters price transparently.</p></div></div>
-      <div class="card"><div class="content stack"><h4>Hybrid</h4><p class="muted small">Neighbor-style subscription with recurring services tailored to needs.</p></div></div>
-      <div class="card"><div class="content stack"><h4>Listing Fees &amp; %</h4><p class="muted small">Verification over membership. Clear, predictable marketplace fees.</p></div></div>
+      <div class="card"><div class="content stack"><h4>Stipend for structured occupancy</h4><p class="muted small">Monthly or weekly stipend for defined presence + scoped property tasks — clear scope, documented.</p></div></div>
+      <div class="card"><div class="content stack"><h4>Check-in &amp; stabilization bundles</h4><p class="muted small">Priced visits or bundles (locks, cameras, condition reports) for seasonal vacancy, turnover, or institutional holds.</p></div></div>
+      <div class="card"><div class="content stack"><h4>Hybrid programs</h4><p class="muted small">Recurring services tailored to portfolio or municipal program needs — subject to pilot agreement.</p></div></div>
+      <div class="card"><div class="content stack"><h4>Participation &amp; verification fees</h4><p class="muted small">Network participation and verification costs as alternatives to opaque per-transaction cuts — details TBD with pilot partners.</p></div></div>
     </div>
-    <p class="small muted">All pricing is example-only for demo.</p>
+    <p class="small muted">Figures on the site elsewhere are examples for demos only.</p>
   </div>
 </section>
 
 </main>
 
 <footer>
-  <div class="container row" style="justify-content:space-between;align-items:center;gap:12px">
-    <p class="small muted" style="margin:0">© <span id="year"></span> Patchwork Living</p>
+  <div class="container row" style="justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+    <p class="small muted" style="margin:0">© <span id="year"></span> Patchwork Living · Pilot-stage structured occupancy &amp; asset protection network</p>
     <nav class="row" style="gap:10px">
       <a href="https://patchwork-living-demo.my.canva.site/patchwork-living-pitch-deck-pptx" target="_blank" rel="noopener">Innovation Deck</a>
       <a href="https://vimeo.com/1124531545?share=copy" target="_blank" rel="noopener">Watch Walkthrough</a>
@@ -712,7 +740,6 @@
   const sampleSitters = [
     {id:'elizabeth', name:'Elizabeth', location:'Atlanta', tagline:'Union member • Homeowner • Pet owner 15+ years', skills:['Security','CPR Certified','Carpentry','Drywall','Trust Certified','Pet care','Handyman','Property Check-ins','Cleaning'], start:'2025-09-01', verified:true, photo:'images/projects/elizabeth.jpg', photoFallbackText:'Elizabeth', bio:'Professional weapons safety training, security training, hazardous materials training. Drywall. Tree removal. Security camera replacement certified. Professional cleaner. OSHA trained.'},
     {id:'danielle', name:'Danielle', location:'Albuquerque', tagline:'Registered dietitian • Homeowner • Government employee', skills:['CPR Certified','Pet care','Property Check-ins','Gapsitting'], start:'2025-09-01', verified:true, photo:'images/projects/danielle.jpg', photoFallbackText:'Danielle', bio:'Certified in CPR, climbing and survival skills. Pet owner 15+ years.'},
-    {id:'john', name:'John', location:'Atlanta', tagline:'State licensed (NC) • Background checked • Homeowner • Union member', skills:['Plumbing','Painting','Water Removal','Pet care','Property Check-ins','Handyman','Cleaning'], start:'2025-09-01', verified:true, photo:'images/projects/john.PNG', photoFallbackText:'John', bio:'State licensed (NC), background checked. Gaming license (State of NC). Water remediation and removal. Truck hauling, trailer hookups, long distance moves. Professional cleaner. Organic and hypoallergenic professional care and cleaning. Pet owner 15+ years. Security camera replacement certified.'},
     {id:'violet', name:'Violet', location:'Your City (mobile)', tagline:'Professional mold remediation • Trust certified • Homeowner • Union member', skills:['Mold Remediation','Trust Certified','Pet care','Property Check-ins','Gapsitting'], start:'2025-09-01', verified:true, photo:'images/projects/violet.jpg', photoFallbackText:'Violet', bio:'Large database and wireless networks. Trust certified. Pet owner 15+ years.'},
     {id:'nichole', name:'Nichole Wleklinski', location:'Mexico City (mobile)', tagline:'Master in Management (UIUC) • Landlord • Homeowner • Food safety certified • Trust certified', skills:['Spanish','Trust Certified','Food Safety','Pet care','Security','Handyman','Property Check-ins'], start:'2025-09-25', verified:true, photo:'images/projects/nichole.jpg', photoFallbackText:'Nichole', bio:'Professional weapons safety training. Union member. OSHA trained. Pet owner 15+ years. Security camera replacement certified. Film industry — actors and producers.', linkedin:'https://www.linkedin.com/in/nicholewleklinski', video:'https://vimeo.com/1120936886?share=copy'},
     {id:'anna', name:'Anna', location:'Atlanta (mobile)', tagline:'Digital nomad • Organization • Professional buyer • Vintage professional • Spanish • Union member', skills:['Spanish','Education','Property Check-ins','Gapsitting','Pet care'], start:'2025-09-01', verified:true, photo:'images/projects/anna.jpg', photoFallbackText:'Anna', photoContain:true, bio:'Organization. Professional buyer. Vintage professional. Digital creator. Pet owner 15+ years.'},
@@ -778,7 +805,7 @@
 
   function badgeHTML(){
     return `
-      <span class="badge-verified" title="Verified gapsitter">
+      <span class="badge-verified" title="Verified network member">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
         Verified
       </span>`;
