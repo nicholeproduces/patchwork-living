@@ -85,6 +85,7 @@
   .card:hover{ transform:translateY(-3px); box-shadow:var(--shadow-md); }
   .card .media-wrap{ position:relative; overflow:hidden }
   .card > .media, .media-wrap > .media{ width:100%; aspect-ratio:16/10; background:#f0f0f0; display:block; object-fit:cover; }
+  .media.project-media{ aspect-ratio:16/8.5; }
   .card .media.photo-contain{ object-fit:contain; }
   .card .content{ padding:22px }
 
@@ -131,18 +132,18 @@
   }
   .badge-verified svg{ width:14px; height:14px; }
 
-  /* Box AI: product landing layout */
-  .boxai-page{ gap:32px; }
+  /* Box AI: standalone product-style layout */
+  .boxai-page{ gap:28px; }
   .boxai-hero{
     display:grid;
-    grid-template-columns:minmax(0, 1.4fr) minmax(240px, 320px);
-    gap:clamp(24px, 4vw, 36px);
+    grid-template-columns:minmax(0, 1.45fr) minmax(240px, 320px);
+    gap:clamp(22px, 3.5vw, 34px);
     align-items:start;
   }
   .boxai-video-card{
     display:flex;
     justify-content:center;
-    padding-top:4px;
+    padding-top:2px;
   }
   .video-shell{
     width:100%;
@@ -151,8 +152,7 @@
     border-radius:18px;
     overflow:hidden;
     background:#111;
-    box-shadow:0 8px 28px rgba(0,0,0,0.1);
-    scroll-margin-top:88px;
+    box-shadow:0 8px 24px rgba(0,0,0,0.12);
   }
   .video-shell iframe{
     width:100%;
@@ -168,33 +168,93 @@
     color:var(--color-8);
     margin:0 0 6px 0;
   }
-  .boxai-screenshots{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; align-items:start; }
-  .boxai-screenshots figure{ margin:0; }
-  .boxai-screenshots img{ width:100%; max-width:400px; margin:0 auto; display:block; height:auto; border-radius:12px; border:1px solid var(--line); box-shadow:var(--shadow-sm); background:#fff; }
-  .boxai-screenshots figcaption{ font-size:13px; color:#666; margin-top:8px; line-height:1.45; }
-  .boxai-why-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:18px;
+  .boxai-label{
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    color:#5a5a5a;
+    margin:0;
   }
-  .boxai-why-grid .card{ height:100%; }
-  .boxai-use-grid{
+  .boxai-navchips{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .boxai-navchips a{ text-decoration:none; }
+  .boxai-navchips .pill{ font-size:12px; padding:7px 11px; }
+  .boxai-proof{
+    border:1px solid var(--line);
+    border-radius:14px;
+    background:#fff;
+    padding:12px 14px;
+    max-width:680px;
+  }
+  .boxai-proof p{ margin:0; font-size:14px; color:#565656; line-height:1.5; }
+  .boxai-demo-note{
+    margin:8px auto 0;
+    max-width:300px;
+    font-size:12px;
+    line-height:1.45;
+    color:#666;
+    text-align:center;
+  }
+  .boxai-what-grid, .boxai-why-grid, .boxai-serve-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
     gap:16px;
   }
-  .boxai-use-grid .card{ height:100%; }
+  .boxai-what-grid .card, .boxai-why-grid .card, .boxai-serve-grid .card{ height:100%; }
+  .boxai-screenshot{
+    max-width:260px;
+    border-radius:12px;
+    border:1px solid var(--line);
+    box-shadow:var(--shadow-sm);
+    background:#fff;
+    display:block;
+  }
   .boxai-pitch-actions{
     display:flex;
     flex-wrap:wrap;
     gap:10px;
     align-items:center;
   }
-
+  .boxai-footer-note{
+    font-size:12px;
+    color:#6a6a6a;
+    margin-top:6px;
+  }
+  .scenarios-layout{
+    display:grid;
+    grid-template-columns:minmax(0, 1.15fr) minmax(280px, 420px);
+    gap:24px;
+    align-items:start;
+  }
+  .scenarios-video{
+    border:1px solid var(--line);
+    border-radius:16px;
+    overflow:hidden;
+    background:#111;
+    box-shadow:var(--shadow-sm);
+  }
+  .scenarios-video iframe{
+    width:100%;
+    aspect-ratio:9/16;
+    border:0;
+    display:block;
+  }
+  .scenarios-list{
+    margin:0;
+    padding-left:20px;
+    color:#4b4b4b;
+    line-height:1.55;
+  }
+  .scenarios-list li{ margin-bottom:8px; }
   @media (max-width:900px){
     .boxai-hero{ grid-template-columns:1fr; }
     .boxai-video-card{ justify-content:center; order:2; }
     .boxai-hero > .stack{ order:1; }
+    .scenarios-layout{ grid-template-columns:1fr; }
   }
 
   ol, ul{ padding-left:20px; }
@@ -203,7 +263,7 @@
 
   /* Mobile tweaks */
   @media (max-width:768px){
-    .boxai-screenshots img{ max-width:100%; }
+    .boxai-screenshot{ max-width:220px; }
     .logo .logo-img{ min-height:44px; max-height:52px; max-width:min(260px,70vw); }
     .hero-logo-bar .hero-logo{ max-height:min(22vh, 180px); padding:12px 16px; }
     .container{ padding:0 16px 32px; }
@@ -235,7 +295,7 @@
     </a>
     <nav id="topnav" aria-label="Main">
       <a href="#/home" data-route-link>Home</a>
-      <a href="#/search-sitters" data-route-link>Network members</a>
+      <a href="#/search-sitters" data-route-link>Gap Sitters</a>
       <a href="#/search-projects" data-route-link>Example scenarios</a>
       <a href="#/how" data-route-link>How It Works</a>
       <a href="#/pricing" data-route-link>Pricing</a>
@@ -266,7 +326,7 @@
     </div>
 
     <div class="stack" style="gap:14px">
-      <span class="eyebrow" style="margin-bottom:2px">Pilot model</span>
+      <span class="eyebrow" style="margin-bottom:2px">Structured occupancy service</span>
       <h1>Stitched by People, Powered by Purpose</h1>
       <p style="font-size:clamp(17px,2vw,22px);font-weight:700;color:#333;margin:0;line-height:1.35;max-width:720px">
         Structured occupancy for vacant and temporarily unattended properties
@@ -281,15 +341,13 @@
         Most homeowners insurance does not cover a vacant house the same way it covers an occupied home. When no one is living there, coverage can change or be limited unless your insurer has been notified and your policy allows it.
       </p>
       <p style="font-size:14px;color:#666;max-width:720px;margin:0">
-        We are <strong>building the pilot model</strong> and developing pilot partnerships with early partners who have properties, portfolios, or public programs. This is not a finished consumer app or a live public marketplace.
+        This is an active service and concept tested through local cases. Escrow and full legal rails are not live yet; delivery currently runs through direct scoped agreements and documented operations.
       </p>
 
       <div class="row" style="margin-top:10px;gap:10px">
         <a class="btn big brand block-sm" href="#/how">How verification works</a>
         <a href="#/community" class="btn big secondary block-sm">Market signals</a>
-      </div>
-      <div class="row" style="gap:10px;flex-wrap:wrap">
-        <a href="https://vimeo.com/1134009534?share=copy&amp;fl=sv&amp;fe=ci" target="_blank" rel="noopener" class="btn big block-sm">Watch gapsitters in action: real squatter cleanup</a>
+        <a href="https://vimeo.com/1118183573?share=copy&amp;fl=sv&amp;fe=ci" target="_blank" rel="noopener" class="btn big secondary block-sm">Powered by purpose: Watch Gap Sitters in action</a>
       </div>
 
       <!-- Risk punch -->
@@ -325,7 +383,7 @@
 
 <section id="route-home-services" data-route="home">
   <div class="container stack">
-    <h2>What the pilot model provides</h2>
+    <h2>What the service provides</h2>
     <p class="muted" style="max-width:820px;margin:0 0 8px 0">Operational building blocks for <strong>structured occupancy</strong>, <strong>asset protection</strong>, and a <strong>trusted network</strong> of vetted members, designed for documentation and accountability, not lifestyle marketing.</p>
     <div class="grid cards">
       <div class="card">
@@ -337,7 +395,7 @@
       <div class="card">
         <div class="content stack">
           <h3>Property stabilization &amp; inspection reports</h3>
-          <p class="muted small">Time-stamped, photo-backed checks of systems and security, scoped to the property (e.g. seasonal vacancy, pre-sale, pre-inspection, or municipal stabilization needs).</p>
+          <p class="muted small">Time-stamped, photo-backed checks of systems and security, scoped to the property such as seasonal vacancy, pre-sale, pre-inspection, or municipal stabilization needs.</p>
         </div>
       </div>
       <div class="card">
@@ -349,7 +407,7 @@
       <div class="card">
         <div class="content stack">
           <h3>Single accountable contact</h3>
-          <p class="muted small">A verified, background-checked point of contact for the pilot with clear communication, defined tasks, and incident-ready coordination (not ad-hoc gig work).</p>
+          <p class="muted small">A verified, background-checked point of contact with clear communication, defined tasks, and incident-ready coordination. This is not ad-hoc gig work.</p>
         </div>
       </div>
       <div class="card" style="background:linear-gradient(180deg,#faf8f2,#fffef9)">
@@ -367,19 +425,19 @@
   <div class="container stack">
     <h2>Market context</h2>
     <p class="muted" style="max-width:820px;font-size:16px;margin:0 0 4px 0">
-      Property, work, and care already operate at huge scale. These are <strong>adjacent</strong> signals, not Patchwork’s market size. Patchwork is a pilot building structured occupancy and a trusted network.
+      Property, work, and care already operate at huge scale. These are <strong>adjacent</strong> signals, not Patchwork’s market size. Patchwork is a live structured occupancy service building a trusted network.
     </p>
     <div class="grid cards" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
-      <div class="card"><div class="content stack"><h4>Vacancy (U.S.)</h4><p class="muted small">Roughly <strong>15.1 million</strong> vacant homes in <strong>2024</strong>, about <strong>10%</strong> of housing inventory. Census data; a related FRED series also tracks homes <strong>held off market</strong> (e.g. occasional use, temporary absence, other non-sale / non-rent reasons).</p></div></div>
-      <div class="card"><div class="content stack"><h4>“Peak 65” and aging</h4><p class="muted small">The U.S. is in a <strong>Peak 65</strong> wave: about <strong>4.1 million</strong> Americans per year are expected to turn <strong>65</strong> through <strong>2027</strong> (on the order of <strong>11,000 per day</strong>). More households need flexible, trusted help at home and away.</p></div></div>
-      <div class="card"><div class="content stack"><h4>Gig and flexible work</h4><p class="muted small">Broad estimates (e.g. Gig Economy Data) put <strong>at least ~42 million</strong> Americans in some form of gig work; definitions vary. The Federal Reserve’s <strong>2024</strong> household well-being work shows participation varies by age, including <strong>about 12%</strong> of adults <strong>60+</strong> reporting gig work, with higher rates among younger adults.</p></div></div>
+      <div class="card"><div class="content stack"><h4>Vacancy, U.S.</h4><p class="muted small">Roughly <strong>15.1 million</strong> vacant homes in <strong>2024</strong>, about <strong>10%</strong> of housing inventory. Census data and related FRED series also track homes <strong>held off market</strong>, including occasional use, temporary absence, and other non-sale or non-rent reasons.</p></div></div>
+      <div class="card"><div class="content stack"><h4>Peak 65 and aging</h4><p class="muted small">The U.S. is in a <strong>Peak 65</strong> wave. About <strong>4.1 million</strong> Americans per year are expected to turn <strong>65</strong> through <strong>2027</strong>, around <strong>11,000 per day</strong>. More households need flexible, trusted help at home and away.</p></div></div>
+      <div class="card"><div class="content stack"><h4>Gig and flexible work</h4><p class="muted small">Broad estimates such as Gig Economy Data put <strong>at least ~42 million</strong> Americans in some form of gig work, with definitions varying. The Federal Reserve’s <strong>2024</strong> household well-being data shows participation varies by age, including <strong>about 12%</strong> of adults <strong>60+</strong>.</p></div></div>
       <div class="card"><div class="content stack"><h4>Care and caregiving</h4><p class="muted small"><strong>AARP</strong> and the <strong>National Alliance for Caregiving</strong> reported on the order of <strong>63 million</strong> Americans as caregivers in <strong>2025</strong>. That scale shows how many adults already do trust-heavy, care-adjacent work.</p></div></div>
       <div class="card"><div class="content stack"><h4>Vetted in-home marketplaces</h4><p class="muted small">Platforms like <strong>Care.com</strong> operate at national scale for background-checked, in-home services. Different use case from structured occupancy, same idea: <strong>vetted people</strong> for sensitive roles.</p></div></div>
-      <div class="card"><div class="content stack"><h4>Creative real estate (Meta)</h4><p class="muted small"><strong>Observed membership</strong> in large creative real estate communities on <strong>Meta / Facebook</strong> reaches the <strong>~179K</strong> range for a single visible group count (e.g. one private creative RE group at <strong>~178.6K</strong>). Community size, not Patchwork adoption.</p></div></div>
-      <div class="card"><div class="content stack"><h4>House-sitting communities</h4><p class="muted small"><strong>Observed membership</strong> in major house-sitting communities is often in the <strong>tens of thousands</strong> (e.g. <strong>33K+</strong> where a public group count is visible). Adjacent interest in property stays, not Patchwork users.</p></div></div>
-      <div class="card"><div class="content stack"><h4>Medical search (example)</h4><p class="muted small"><strong>Doctoralia Mexico</strong> reported <strong>11M+</strong> visits/month and <strong>1.9M+</strong> appointments booked/month in <strong>2024</strong>. Illustrates large trust-based booking behavior in another vertical, not Patchwork scope.</p></div></div>
+      <div class="card"><div class="content stack"><h4>Creative real estate, Meta</h4><p class="muted small"><strong>Observed membership</strong> in large creative real estate communities on <strong>Meta / Facebook</strong> reaches the <strong>~179K</strong> range for a single visible group count, including one private group around <strong>~178.6K</strong>. This indicates community size, not Patchwork adoption.</p></div></div>
+      <div class="card"><div class="content stack"><h4>House-sitting communities</h4><p class="muted small"><strong>Observed membership</strong> in major house-sitting communities is often in the <strong>tens of thousands</strong>, including visible counts around <strong>33K+</strong>. This indicates adjacent interest in property stays, not Patchwork users.</p></div></div>
+      <div class="card"><div class="content stack"><h4>Medical search example</h4><p class="muted small"><strong>Doctoralia Mexico</strong> reported <strong>11M+</strong> visits/month and <strong>1.9M+</strong> appointments booked/month in <strong>2024</strong>. This illustrates trust-based booking behavior in another vertical.</p></div></div>
     </div>
-    <p class="small muted" style="margin:0;max-width:820px">Patchwork is pilot-stage. These figures describe <strong>national or platform context</strong> and <strong>adjacent communities</strong>, not Patchwork’s current user base.</p>
+    <p class="small muted" style="margin:0;max-width:820px">These figures describe <strong>national or platform context</strong> and <strong>adjacent communities</strong>, not Patchwork’s current user base.</p>
   </div>
 </section>
 
@@ -389,7 +447,7 @@
     <span class="eyebrow">Strategic context</span>
     <h2>Market signals &amp; why this network matters</h2>
     <p class="muted" style="max-width:880px;font-size:16px">
-      Demand is fragmented: owners need <strong>trusted presence</strong> and <strong>documented accountability</strong> during vacancy; experienced people seek <strong>intermittent, well-scoped roles</strong> tied to property stabilization, not a lifestyle travel product. Patchwork Living is designing a <strong>pilot-stage network</strong> to align those needs with structured occupancy and asset protection.
+      Demand is fragmented: owners need <strong>trusted presence</strong> and <strong>documented accountability</strong> during vacancy; experienced people seek <strong>intermittent, well-scoped roles</strong> tied to property stabilization, not a lifestyle travel product. Patchwork Living operates a structured occupancy network aligned with asset protection needs.
     </p>
 
     <div class="grid cards" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
@@ -422,7 +480,7 @@
             <li><strong>Structured roles</strong> for vetted occupants and members, scoped tasks, monitoring, emergency response pathways, and documentation by default.</li>
             <li><strong>Verification &amp; education</strong> oriented toward property and compliance outcomes, not consumer “reviews.”</li>
             <li><strong>Asset protection first:</strong> occupancy letters, inspections, and records suitable for insurers and institutional review.</li>
-            <li><strong>Pilot partnerships:</strong> we are building the model with early properties and aligned partners, not operating a public marketplace at scale today.</li>
+            <li><strong>Partner programs:</strong> we run with aligned properties and partners and are not operating a broad public marketplace at scale today.</li>
           </ul>
         </div>
       </div>
@@ -432,9 +490,9 @@
     <div class="card">
       <div class="content grid" style="grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:20px">
         <div class="stack">
-          <h3>Pilot updates</h3>
+          <h3>Service updates</h3>
           <p class="small muted">
-            We are <strong>currently developing pilot partnerships</strong> and welcome interest from owners, institutions, and qualified network members. Occasional updates, no spam, no data resale.
+            We are actively growing property and institutional partnerships and welcome interest from owners, institutions, and qualified Gap Sitters. Occasional updates, no spam, no data resale.
           </p>
         </div>
         <form class="stack small" action="mailto:help@patchworkwithus.com" method="post" enctype="text/plain">
@@ -445,13 +503,13 @@
           <div class="field">
             <label for="community-role">I am a...</label>
             <select id="community-role" name="role" class="input">
-              <option value="member">Network member / vetted occupant (interest)</option>
+              <option value="member">Gap Sitter / vetted occupant (interest)</option>
               <option value="owner">Homeowner / landlord / asset manager</option>
               <option value="institution">Institution or municipality</option>
               <option value="other">Other</option>
             </select>
           </div>
-          <button class="btn brand" type="submit">Request pilot information</button>
+          <button class="btn brand" type="submit">Request service information</button>
           <p class="small muted" style="margin:0">
             Opens your email app to <strong>help@patchworkwithus.com</strong>, you control the send.
           </p>
@@ -471,16 +529,16 @@
       <div class="card"><div class="content stack"><h4>Gig and flexible work</h4><p class="muted small">Tens of millions participate in gig or flexible work; the Federal Reserve’s <strong>2024</strong> survey includes <strong>about 12%</strong> of adults <strong>60+</strong> reporting gig work. A wide pool for well-scoped, verified roles.</p></div></div>
       <div class="card"><div class="content stack"><h4>Care economy</h4><p class="muted small">On the order of <strong>63 million</strong> Americans were caregivers in recent estimates (<strong>AARP</strong> / <strong>NAC</strong>). Trust-based work at scale.</p></div></div>
     </div>
-    <p class="small muted">Figures reflect published national statistics and surveys (e.g. Census, Federal Reserve, industry estimates).</p>
+    <p class="small muted">Figures reflect published national statistics and surveys such as Census, Federal Reserve, and industry estimates.</p>
   </div>
 </section>
 
-<!-- SEARCH: network members -->
+<!-- SEARCH: gap sitters -->
 <section id="route-search-sitters" data-route="search-sitters" hidden>
   <div class="container stack">
-    <h2>Network members</h2>
+    <h2>Gap Sitters</h2>
     <p class="muted" style="max-width:880px;margin:0 0 12px 0">
-      The cards below are <strong>example profiles</strong> for pilot and design conversations, not a live directory or open marketplace. We are building a <strong>trusted network</strong> of vetted occupants and property-capable members; availability and onboarding will follow pilot partnerships.
+      The cards below are <strong>example profiles</strong> for service and partner conversations, not a live public directory. We run a <strong>trusted network</strong> of vetted occupants and property-capable members; availability and onboarding follow active case demand.
     </p>
     <div style="position:relative;width:100%;height:0;padding-top:56.25%;box-shadow:0 2px 8px 0 rgba(63,69,81,0.16);margin-top:1.6em;margin-bottom:0.9em;overflow:hidden;border-radius:8px">
       <iframe loading="lazy" style="position:absolute;width:100%;height:100%;top:0;left:0;border:none" src="https://www.canva.com/design/DAGzxdvYjw4/k_cBGpOTlm3V92Gw9dT43g/view?embed" allowfullscreen></iframe>
@@ -529,19 +587,27 @@
 <section id="route-search-projects" data-route="search-projects" hidden>
   <div class="container stack">
     <h2>Example property scenarios</h2>
-    <p class="muted" style="max-width:880px;margin:0 0 12px 0">
-      These example listings show how structured occupancy and stipends could be scoped in practice. They do not represent active public contracts or a live bidding marketplace.
-    </p>
-    <div class="card" style="background:linear-gradient(135deg, var(--muted) 0%, #fffef9 100%);border:2px solid var(--brand)">
-      <div class="content stack">
-        <span class="eyebrow">Pilot demo (conceptual)</span>
-        <h3>How a future match flow might work</h3>
-        <p class="muted">In a full pilot, qualified network members could respond to scoped scenarios with a rate and message. Below, “Bid” is a <strong>demo interaction only</strong> for stakeholder walkthroughs, not live contracting.</p>
-        <div class="row" style="gap:12px">
-          <span class="chip">1. Review scenario</span>
-          <span class="chip">2. Demo “Bid” (placeholder)</span>
-          <span class="chip">3. Pilot intake separately</span>
+    <div class="scenarios-layout">
+      <div class="stack" style="gap:10px">
+        <p class="muted" style="max-width:720px;margin:0">
+          These example listings show how structured occupancy and stipends can be scoped into practice.
+        </p>
+        <ul class="scenarios-list">
+          <li>Vacant home during renovation with contractor oversight and daily check-ins.</li>
+          <li>Seasonal absence coverage with documented property checks and utility monitoring.</li>
+          <li>Turnover gap support for rentals needing presence, access coordination, and reporting.</li>
+          <li>Post-incident stabilization where owners need immediate trusted on-site support.</li>
+        </ul>
+      </div>
+      <div class="stack" style="gap:10px">
+        <h3 style="margin:0">Watch a real-life squatter aftermath, Gap Sitter in action</h3>
+        <div class="scenarios-video">
+          <iframe src="https://player.vimeo.com/video/1118183573?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            title="Gap Sitter in action walkthrough"></iframe>
         </div>
+        <a href="https://vimeo.com/1118183573?share=copy&amp;fl=sv&amp;fe=ci" target="_blank" rel="noopener" class="btn brand">Watch a Gap Sitter in Action</a>
       </div>
     </div>
 
@@ -589,12 +655,20 @@
 <!-- HOW IT WORKS (simplified, risk-first & verification-first) -->
 <section id="route-how" data-route="how" hidden>
   <div class="container stack">
-    <h2>How the pilot model works</h2>
-    <p class="muted" style="font-size:18px;max-width:880px">
-      Designed to be <strong>simple, verifiable, and documentation-forward</strong>: authorized representation, structured human presence where required, and an audit-friendly trail, from check-ins to exportable reports. Exact steps may vary by pilot partner.
-    </p>
+    <h2>How it works</h2>
+    <div class="card">
+      <div class="content">
+        <ul class="muted" style="margin:0">
+          <li>Designed to be simple, verifiable, and documented.</li>
+          <li>Forward-authorized presentation for approved representation.</li>
+          <li>Structured human presence where required.</li>
+          <li>Audit-friendly trail from check-ins to exportable reports.</li>
+          <li>Steps vary by property, owner needs, and partner requirements.</li>
+        </ul>
+      </div>
+    </div>
     <div class="grid cards">
-      <div class="card"><div class="content stack"><h3>1) Authorize &amp; Scope</h3><p class="muted small">Short authorization naming Patchwork (or the pilot entity) as your verified representative. Define periodic check-ins or structured occupancy; scope tasks (utilities, cameras, inspections, stabilization).</p></div></div>
+      <div class="card"><div class="content stack"><h3>1) Authorize &amp; Scope</h3><p class="muted small">Short authorization naming Patchwork as your verified representative. Define periodic check-ins or structured occupancy; scope tasks such as utilities, cameras, inspections, and stabilization.</p></div></div>
       <div class="card"><div class="content stack"><h3>2) Verify &amp; Activate</h3><p class="muted small">Your local, background-checked representative performs a first visit: Face-ID check-in, photo baseline, meter readings, lock/camera setups, and initial condition report.</p></div></div>
       <div class="card"><div class="content stack"><h3>3) Document &amp; Deliver</h3><p class="muted small">Every visit is time-stamped with photos. Reports compile to PDF for your insurer or PM. Emergency-ready access allows supervised entry for law enforcement or technicians.</p></div></div>
       <div class="card"><div class="content stack"><h3>4) Stay Covered</h3><p class="muted small">Insurer-friendly occupancy letters and ongoing proof of activity keep the property compliant. You see everything in your dashboard and by email.</p></div></div>
@@ -660,7 +734,7 @@
 <!-- JOIN US -->
 <section id="route-join" data-route="join" hidden>
   <div class="container stack">
-    <span class="eyebrow">Pilot-stage</span>
+        <span class="eyebrow">Service-stage</span>
     <h2>Partners, investors, and builders</h2>
     <p class="muted" style="max-width:800px">
       Patchwork Living is <strong>building the model</strong>. We are seeking <strong>early partners</strong> with properties, portfolios, or public programs, plus aligned capital and technical help. Focus areas: structured occupancy, asset protection, verification, and institutional-grade documentation, not a consumer growth sprint.
@@ -680,75 +754,46 @@
 <section id="route-boxai" data-route="boxai">
   <div class="container stack boxai-page">
 
-    <!-- 1. HERO: product + video (stats moved to footnote) -->
+    <!-- 1. HERO / INTRO -->
     <div class="boxai-hero">
       <div class="stack" style="gap:14px">
         <div>
-          <p class="boxai-kicker">Savage Props, LLC · Visual inventory MVP</p>
-          <h1 style="margin:0;font-size:clamp(28px,4vw,44px);line-height:1.15">Box AI</h1>
-          <p class="muted" style="margin:8px 0 0 0;font-size:clamp(17px,1.8vw,20px);max-width:36em;line-height:1.5">
-            A <strong>visual inventory</strong> tool for real-world stock: capture with <strong>photo recognition</strong>, refine with <strong>voice</strong>, and search what you stored without reopening every box.
-            Built for <strong>storage units</strong>, <strong>small-business stock</strong>, <strong>project-based</strong> and <strong>seasonal</strong> inventory, and <strong>creative</strong> workflows. Not a generic “AI for everything” app. Not a finished enterprise suite. A <strong>working beta</strong> we are exercising with real operators.
+          <p class="boxai-kicker">Introducing BoxAI</p>
+          <p class="boxai-label">AI-powered inventory system</p>
+          <h1 style="margin:4px 0 0 0;font-size:clamp(30px,4.1vw,46px);line-height:1.14">Know exactly what you own, where it is, and who moved it.</h1>
+          <p class="muted" style="margin:10px 0 0 0;font-size:clamp(16px,1.7vw,19px);max-width:38em;line-height:1.55">
+            BoxAI helps consumers and businesses capture inventory with photos and voice, then find it fast. Over time, the platform can expand from inventory recognition into storage awareness and space-planning guidance from images.
           </p>
         </div>
+        <div class="boxai-navchips">
+          <a href="#boxai-what"><span class="pill">What it does</span></a>
+          <a href="#boxai-serves"><span class="pill">Who it serves</span></a>
+          <a href="#boxai-pitch"><span class="pill">Pitching materials</span></a>
+        </div>
         <div class="row" style="gap:10px;flex-wrap:wrap">
-          <a class="btn brand" href="mailto:savagepropsllc@gmail.com?subject=Box%20AI%20pilot%20%2F%20operator%20conversation">Talk to us about the pilot</a>
-          <button type="button" class="btn secondary big" onclick="document.getElementById('boxai-screenshots').scrollIntoView({behavior:'smooth',block:'start'})">See the product</button>
-          <button type="button" class="btn secondary big" onclick="location.hash='#/boxai'; setTimeout(function(){ var el=document.getElementById('boxai-pitch'); if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); }, 120);">Pitch &amp; materials</button>
+          <a class="btn brand" href="mailto:savagepropsllc@gmail.com?subject=Box%20AI%20pilot%20conversation">Talk to us about the pilot</a>
+          <button type="button" class="btn secondary big" onclick="document.getElementById('boxai-pitch').scrollIntoView({behavior:'smooth',block:'start'})">Pitching materials</button>
+        </div>
+        <div class="boxai-proof">
+          <p><strong>Lightweight proof:</strong> this Vimeo is the live MVP walkthrough. The opening frame is from a real recorded flow, then the demo shows the product in action. Positioned for B2C users, B2B operations, and future partnership or embedded offerings where it fits.</p>
         </div>
       </div>
       <div class="boxai-video-card">
-        <div id="boxai-demo" class="video-shell">
+        <div class="video-shell">
           <iframe src="https://player.vimeo.com/video/1175976437?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
             referrerpolicy="strict-origin-when-cross-origin"
             title="Box AI walkthrough demo"></iframe>
         </div>
+        <p class="boxai-demo-note">MVP demo video. The thumbnail is a presenter frame from the recorded walkthrough. Press play for the full flow.</p>
       </div>
     </div>
 
-    <!-- 2. PRODUCT IN THE BUILD -->
-    <div id="boxai-screenshots" class="stack" style="gap:10px;scroll-margin-top:88px">
-      <h2 style="font-size:clamp(20px,2.3vw,28px);margin:0">In the build</h2>
-      <p class="muted small" style="margin:0;max-width:640px">Beta UI (will change). Demo is the video above.</p>
-      <div class="boxai-screenshots" style="max-width:320px;margin:0">
-        <figure>
-          <img src="assets/boxai_analyzewithai.png" alt="Analyze with AI" width="400" height="800" loading="lazy" decoding="async" />
-          <figcaption>Analyze with AI</figcaption>
-        </figure>
-      </div>
-    </div>
-
-    <!-- 3. WHY NOW -->
-    <div class="stack" style="gap:12px">
-      <h2 style="font-size:clamp(20px,2.3vw,28px);margin:0">Why now</h2>
-      <div class="boxai-why-grid">
-        <article class="card">
-          <div class="content stack" style="gap:8px">
-            <h3 style="margin:0;font-size:1.05rem">Inventory stays invisible</h3>
-            <p class="muted small" style="margin:0">Bins and units multiply; labels and spreadsheets fall behind. Operators need a <strong>visual</strong> workflow that matches the floor.</p>
-          </div>
-        </article>
-        <article class="card">
-          <div class="content stack" style="gap:8px">
-            <h3 style="margin:0;font-size:1.05rem">Small teams run lean</h3>
-            <p class="muted small" style="margin:0">Time lost hunting stock costs real money. Practical capture and search beat a heavy WMS for many use cases.</p>
-          </div>
-        </article>
-        <article class="card">
-          <div class="content stack" style="gap:8px">
-            <h3 style="margin:0;font-size:1.05rem">Searchable beats remembered</h3>
-            <p class="muted small" style="margin:0">Photo and voice turn stacks into a <strong>queryable record</strong> so you find the bin without opening everything.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-
-    <!-- 4. CORE LOOP -->
-    <div class="stack" style="gap:12px">
+    <!-- 2. WHAT BOXAI DOES -->
+    <div id="boxai-what" class="stack" style="gap:12px;scroll-margin-top:88px">
       <h2 style="font-size:clamp(20px,2.3vw,28px);margin:0">What it does</h2>
-      <p class="muted small" style="margin:0;max-width:560px">Four steps. Everything else is secondary for this MVP.</p>
-      <div class="grid cards" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+      <p class="muted small" style="margin:0;max-width:620px">Core loop for inventory operations.</p>
+      <div class="boxai-what-grid">
         <article class="card"><div class="content"><h4 style="margin:0 0 6px 0">Capture</h4><p class="small muted" style="margin:0">Photos and voice so logging matches how you work in the moment.</p></div></article>
         <article class="card"><div class="content"><h4 style="margin:0 0 6px 0">Recognize</h4><p class="small muted" style="margin:0">Suggestions for what is in frame so items become structured data.</p></div></article>
         <article class="card"><div class="content"><h4 style="margin:0 0 6px 0">Search</h4><p class="small muted" style="margin:0">Query what you logged, not what you forgot you wrote down.</p></div></article>
@@ -756,49 +801,54 @@
       </div>
     </div>
 
-    <!-- 5. WHO IT’S FOR -->
-    <div class="stack" style="gap:12px">
-      <h2 style="font-size:clamp(20px,2.3vw,28px);margin:0">Who it’s for</h2>
-      <p class="muted small" style="margin:0;max-width:640px">Early use cases we’re piloting.</p>
-      <div class="boxai-use-grid">
-        <article class="card"><div class="content"><h4 style="margin:0 0 6px 0">Storage units</h4><p class="small muted" style="margin:0">When you can’t see what you have.</p></div></article>
-        <article class="card"><div class="content"><h4 style="margin:0 0 6px 0">Small businesses</h4><p class="small muted" style="margin:0">Stock and light warehousing without ERP overhead.</p></div></article>
-        <article class="card"><div class="content"><h4 style="margin:0 0 6px 0">Creative &amp; projects</h4><p class="small muted" style="margin:0">Props, sets, events, seasonal runs.</p></div></article>
-        <article class="card"><div class="content"><h4 style="margin:0 0 6px 0">Life transitions</h4><p class="small muted" style="margin:0">Moves, estates, downsizing.</p></div></article>
+    <!-- 3. WHO BOXAI SERVES -->
+    <div id="boxai-serves" class="stack" style="gap:12px;scroll-margin-top:88px">
+      <h2 style="font-size:clamp(20px,2.3vw,28px);margin:0">Who BoxAI serves</h2>
+      <div class="boxai-serve-grid">
+        <article class="card"><div class="content"><h4 style="margin:0 0 6px 0">Home &amp; personal storage</h4><p class="small muted" style="margin:0">Garages, closets, attics, home units, and personal moves.</p></div></article>
+        <article class="card"><div class="content"><h4 style="margin:0 0 6px 0">Moving &amp; storage</h4><p class="small muted" style="margin:0">Storage facilities, moving companies, portable storage, and customer add-ons.</p></div></article>
+        <article class="card"><div class="content"><h4 style="margin:0 0 6px 0">Creative &amp; event industries</h4><p class="small muted" style="margin:0">Film crews, touring merch, festivals, props, galleries, exhibits, and pop-ups.</p></div></article>
+        <article class="card"><div class="content"><h4 style="margin:0 0 6px 0">Seasonal &amp; equipment businesses</h4><p class="small muted" style="margin:0">Outdoor rentals, tourism operators, off-season gear, and oversized equipment.</p></div></article>
+        <article class="card"><div class="content"><h4 style="margin:0 0 6px 0">Business &amp; multi-location operations</h4><p class="small muted" style="margin:0">Backstock, supply rooms, emergency response readiness, and distributed equipment.</p></div></article>
       </div>
     </div>
 
-    <!-- 6. PITCH & MATERIALS (links only; demo is hero video) -->
+    <!-- 4. WHY NOW / MARKET CONTEXT -->
+    <div class="stack" style="gap:12px">
+      <h2 style="font-size:clamp(20px,2.3vw,28px);margin:0">Why now</h2>
+      <div class="boxai-why-grid">
+        <article class="card"><div class="content"><h4 style="margin:0 0 6px 0">Inventory remains hard to see</h4><p class="small muted" style="margin:0">Physical stock still gets trapped in bins, units, and back rooms.</p></div></article>
+        <article class="card"><div class="content"><h4 style="margin:0 0 6px 0">Operators need practical speed</h4><p class="small muted" style="margin:0">Most teams need faster visibility without deploying enterprise systems first.</p></div></article>
+        <article class="card"><div class="content"><h4 style="margin:0 0 6px 0">Partnership opportunity</h4><p class="small muted" style="margin:0">A platform that can support direct users, operations teams, and embedded partner programs over time.</p></div></article>
+      </div>
+    </div>
+
+    <!-- 5. PRODUCT VISUAL -->
+    <div class="stack" style="gap:8px">
+      <h2 style="font-size:clamp(20px,2.3vw,28px);margin:0">Product visual</h2>
+      <p class="muted small" style="margin:0;max-width:520px">Current build snapshot. Demo video is above.</p>
+      <picture>
+        <source media="(max-width: 768px)" srcset="assets/boxai_analyzewithai-mobile.jpg" type="image/jpeg" />
+        <img class="boxai-screenshot" src="assets/boxai_analyzewithai.png" alt="BoxAI analyze with AI screen" width="400" height="800" loading="lazy" decoding="async" />
+      </picture>
+    </div>
+
+    <!-- 6. PITCH MATERIALS / PILOT -->
     <div id="boxai-pitch" class="stack" style="gap:10px;scroll-margin-top:88px">
-      <h2 style="font-size:clamp(20px,2.3vw,28px);margin:0">Pitch &amp; materials</h2>
-      <p class="muted small" style="margin:0;max-width:520px">Deck and PDF for partners. Full demo is the video at the top.</p>
+      <h2 style="font-size:clamp(20px,2.3vw,28px);margin:0">Pitching materials</h2>
       <div class="boxai-pitch-actions">
         <a class="btn brand" href="https://www.canva.com/design/DAG4C7nvR3o/NIr2uRSftAMuDGQ67vIvmw/edit?utm_content=DAG4C7nvR3o&amp;utm_campaign=designshare&amp;utm_medium=link2&amp;utm_source=sharebutton" target="_blank" rel="noopener">Open deck</a>
-        <a class="btn secondary" href="assets/boxai-pitch.pdf" download>Download PDF</a>
-        <a class="btn secondary" href="mailto:savagepropsllc@gmail.com?subject=Box%20AI%20beta%20access">Request beta access</a>
+        <a class="btn secondary" href="assets/boxai-pitch-v1.pdf" download>Download PDF</a>
+        <a class="btn secondary" href="mailto:savagepropsllc@gmail.com?subject=Box%20AI%20pilot%20conversation">Talk to us about the pilot</a>
       </div>
+      <p class="boxai-footer-note">BoxAI is a Savage Props LLC company. Current file: <code>boxai-pitch-v1.pdf</code>; <code>boxai-pitch.pdf</code> remains the stable alias.</p>
     </div>
 
-    <!-- 7. PILOT (light) -->
-    <div class="card">
-      <div class="content">
-        <h3 style="margin:0 0 6px 0;font-size:1.05rem">Pilot</h3>
-        <p class="small muted" style="margin:0">
-          <strong>Beta MVP</strong>: narrow scope, real operators, feedback. Pricing is <strong>per pilot</strong>, not a generic app launch.
-        </p>
-        <p class="small muted" style="margin:10px 0 0 0">
-          <a href="mailto:savagepropsllc@gmail.com?subject=Box%20AI%20question">Questions</a>
-          ·
-          <a href="mailto:savagepropsllc@gmail.com?subject=Box%20AI%20pilot%20conversation">Operator conversation</a>
-        </p>
-      </div>
-    </div>
-
-    <!-- 8. MARKET CONTEXT -->
+    <!-- 7. MARKET CONTEXT -->
     <div class="card" style="background:linear-gradient(180deg,#faf8f2,#fffef9);border-style:dashed">
       <div class="content" style="padding:18px 20px">
         <p class="small muted" style="margin:0;line-height:1.5">
-          <strong>Context:</strong> ~<strong>11%</strong> of U.S. households rent self-storage; industry revenue is often cited around <strong>mid‑$40B</strong>/year. Problem-space backdrop for Box AI, not our revenue.
+          <strong>Market context:</strong> around <strong>11%</strong> of U.S. households rent self-storage, and industry revenue is often cited in the <strong>mid-$40B</strong> range per year. This indicates problem size, not BoxAI revenue.
         </p>
       </div>
     </div>
@@ -833,13 +883,13 @@
 <!-- PRICING (kept) -->
 <section id="route-pricing" data-route="pricing" hidden>
   <div class="container stack">
-    <h2>Revenue &amp; pricing concepts (pilot)</h2>
-    <p class="muted" style="max-width:800px">Structures for stakeholder conversations. Final terms are up to negotiation with pilot partners.</p>
+    <h2>Revenue &amp; pricing concepts</h2>
+    <p class="muted" style="max-width:800px">Structures for stakeholder conversations. Final terms are set by scope, service level, and partner requirements.</p>
     <div class="grid cards">
       <div class="card"><div class="content stack"><h4>Stipend for structured occupancy</h4><p class="muted small">Monthly or weekly stipend for defined presence + scoped property tasks. Clear scope, documented.</p></div></div>
       <div class="card"><div class="content stack"><h4>Check-in &amp; stabilization bundles</h4><p class="muted small">Priced visits or bundles (locks, cameras, condition reports) for seasonal vacancy, turnover, or institutional holds.</p></div></div>
-      <div class="card"><div class="content stack"><h4>Hybrid programs</h4><p class="muted small">Recurring services tailored to portfolio or municipal program needs, subject to pilot agreement.</p></div></div>
-      <div class="card"><div class="content stack"><h4>Participation &amp; verification fees</h4><p class="muted small">Network participation and verification costs as alternatives to opaque per-transaction cuts. Details TBD with pilot partners.</p></div></div>
+      <div class="card"><div class="content stack"><h4>Hybrid programs</h4><p class="muted small">Recurring services tailored to portfolio or municipal program needs, subject to program agreement.</p></div></div>
+      <div class="card"><div class="content stack"><h4>Participation &amp; verification fees</h4><p class="muted small">Network participation and verification costs as alternatives to opaque per-transaction cuts. Final details are scoped per partner.</p></div></div>
     </div>
     <p class="small muted">Figures on the site elsewhere are examples for demos only.</p>
   </div>
@@ -964,7 +1014,7 @@
       const bidsPill = isShowcase ? 'Showcase' : `Bids left: ${bidsLeft}`;
       const completedLine = isShowcase && p.completedBy ? `Completed by ${p.completedBy}${p.possibleEarnings && p.possibleEarnings[0] != null ? ` · Possible earnings: $${p.possibleEarnings[0]}–$${p.possibleEarnings[1]}` : ''}` : '';
       el.innerHTML = `
-        <img class="media" alt="${p.title}" src="${img}" data-fallback="${ph(p.imgFallbackText || 'House')}" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.onerror=null}">
+          <img class="media project-media" alt="${p.title}" src="${img}" data-fallback="${ph(p.imgFallbackText || 'House')}" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.onerror=null}">
         <div class="content stack">
           <div class="row" style="justify-content:space-between;align-items:center">
             <strong>${p.title}</strong>
