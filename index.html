@@ -157,7 +157,9 @@
   }
   .boxai-video-card{
     display:flex;
-    justify-content:center;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
     padding-top:2px;
   }
   .video-shell{
@@ -198,14 +200,15 @@
   }
   .boxai-navchips a{ text-decoration:none; }
   .boxai-navchips .pill{ font-size:12px; padding:7px 11px; }
-  .boxai-proof{
-    border:1px solid var(--line);
-    border-radius:14px;
-    background:#fff;
-    padding:12px 14px;
-    max-width:680px;
+  .boxai-video-tagline{
+    margin:16px 0 0 0;
+    max-width:min(100%, 380px);
+    text-align:center;
+    font-style:italic;
+    font-size:clamp(17px, 2.05vw, 22px);
+    line-height:1.45;
+    color:#4a4a4a;
   }
-  .boxai-proof p{ margin:0; font-size:14px; color:#565656; line-height:1.5; }
   .boxai-what-grid, .boxai-why-grid, .boxai-serve-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
@@ -355,7 +358,7 @@
       </p>
 
       <div class="row" style="margin-top:10px;gap:10px">
-        <a href="https://vimeo.com/1118183573?share=copy&amp;fl=sv&amp;fe=ci" target="_blank" rel="noopener" class="btn big brand block-sm">Watch the walkthrough</a>
+        <a href="https://vimeo.com/1134009534?share=copy&amp;fl=sv&amp;fe=ci" target="_blank" rel="noopener" class="btn big brand block-sm">Watch the walkthrough</a>
       </div>
 
       <!-- Risk punch -->
@@ -549,7 +552,7 @@
       The cards below are <strong>example profiles</strong> for service and partner conversations, not a live public directory. We run a <strong>trusted network</strong> of vetted occupants and property-capable members; availability and onboarding follow active case demand.
     </p>
     <div class="row" style="gap:10px;flex-wrap:wrap">
-      <a href="https://vimeo.com/1118183573?share=copy&amp;fl=sv&amp;fe=ci" target="_blank" rel="noopener" class="btn brand">See Gap Sitter in Action</a>
+      <a href="https://vimeo.com/1134009534?share=copy&amp;fl=sv&amp;fe=ci" target="_blank" rel="noopener" class="btn brand">See Gap Sitter in Action</a>
     </div>
     <div style="position:relative;width:100%;height:0;padding-top:56.25%;box-shadow:0 2px 8px 0 rgba(63,69,81,0.16);margin-top:1.6em;margin-bottom:0.9em;overflow:hidden;border-radius:8px">
       <iframe loading="lazy" style="position:absolute;width:100%;height:100%;top:0;left:0;border:none" src="https://www.canva.com/design/DAGzxdvYjw4/k_cBGpOTlm3V92Gw9dT43g/view?embed" allowfullscreen></iframe>
@@ -613,12 +616,12 @@
       <div class="stack" style="gap:10px">
         <h3 style="margin:0">Watch a real-life squatter aftermath, Gap Sitter in action</h3>
         <div class="scenarios-video">
-          <iframe src="https://player.vimeo.com/video/1118183573?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+          <iframe src="https://player.vimeo.com/video/1134009534?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
             referrerpolicy="strict-origin-when-cross-origin"
             title="Gap Sitter in action walkthrough"></iframe>
         </div>
-        <a href="https://vimeo.com/1118183573?share=copy&amp;fl=sv&amp;fe=ci" target="_blank" rel="noopener" class="btn brand">Watch a Gap Sitter in Action</a>
+        <a href="https://vimeo.com/1134009534?share=copy&amp;fl=sv&amp;fe=ci" target="_blank" rel="noopener" class="btn brand">Watch a Gap Sitter in Action</a>
       </div>
     </div>
 
@@ -786,9 +789,6 @@
           <a class="btn secondary big" href="https://www.canva.com/design/DAG4C7nvR3o/NIr2uRSftAMuDGQ67vIvmw/edit?utm_content=DAG4C7nvR3o&amp;utm_campaign=designshare&amp;utm_medium=link2&amp;utm_source=sharebutton" target="_blank" rel="noopener">View Pitch Deck</a>
           <a class="btn secondary big" href="assets/boxai-onepager.pdf" download>Download One-Pager</a>
         </div>
-        <div class="boxai-proof">
-          <p><strong>Lightweight proof:</strong> this Vimeo is the live MVP walkthrough. The opening frame is from a real recorded flow, then the demo shows the product in action. Positioned for B2C users, B2B operations, and future partnership or embedded offerings where it fits.</p>
-        </div>
       </div>
       <div class="boxai-video-card">
         <div class="video-shell">
@@ -797,6 +797,7 @@
             referrerpolicy="strict-origin-when-cross-origin"
             title="Box AI walkthrough demo"></iframe>
         </div>
+        <p class="boxai-video-tagline">Built around how you already live, not how you think you should.</p>
       </div>
     </div>
 
@@ -815,6 +816,7 @@
     <!-- 3. WHO BOXAI SERVES -->
     <div id="boxai-serves" class="stack" style="gap:12px;scroll-margin-top:88px">
       <h2 style="font-size:clamp(20px,2.3vw,28px);margin:0">Who BoxAI serves</h2>
+      <p style="margin:0">Works for homeowners, operators, and teams who are already stretched thin. No behavior change required.</p>
       <div class="boxai-serve-grid">
         <article class="card"><div class="content"><h4 style="margin:0 0 6px 0">Home &amp; personal storage</h4><p class="small muted" style="margin:0">Garages, closets, attics, home units, and personal moves.</p></div></article>
         <article class="card"><div class="content"><h4 style="margin:0 0 6px 0">Moving &amp; storage</h4><p class="small muted" style="margin:0">Storage facilities, moving companies, portable storage, and customer add-ons.</p></div></article>
