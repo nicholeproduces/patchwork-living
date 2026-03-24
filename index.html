@@ -100,6 +100,21 @@
   .nav{ display:flex; align-items:center; justify-content:space-between; gap:16px; padding:10px 20px; max-width:var(--maxw); margin:0 auto; }
   .logo{ display:flex; align-items:center; gap:10px; font-weight:700; font-size:17px; letter-spacing:-.01em; color:#111; }
   .logo .logo-img{ height:auto; width:auto; min-height:48px; max-height:56px; max-width:min(280px,52vw); object-fit:contain; display:block; border-radius:8px; }
+  nav a.boxai-nav-logo{
+    padding:6px 8px;
+    display:inline-flex;
+    align-items:center;
+    background:transparent;
+  }
+  nav a.boxai-nav-logo img{
+    display:block;
+    height:auto;
+    width:auto;
+    max-height:28px;
+    max-width:140px;
+    object-fit:contain;
+    border-radius:6px;
+  }
   .hero-logo-bar{ width:100%; text-align:center; padding:8px 0 4px; }
   .hero-logo-bar .hero-logo{ width:auto; max-width:min(92vw, 480px); max-height:min(28vh, 200px); height:auto; object-fit:contain; display:inline-block; margin:0 auto; border-radius:14px; box-shadow:0 8px 28px rgba(0,0,0,.07); background:#fffef9; padding:14px 20px; }
 
@@ -176,21 +191,6 @@
     color:#5a5a5a;
     margin:0;
   }
-  .boxai-inline-logo{
-    width:auto;
-    height:auto;
-    max-height:86px;
-    max-width:min(78vw, 320px);
-    object-fit:contain;
-    display:block;
-    border-radius:8px;
-  }
-  .boxai-brand-wrap{
-    display:flex;
-    justify-content:center;
-    width:100%;
-    margin-bottom:12px;
-  }
   .boxai-navchips{
     display:flex;
     flex-wrap:wrap;
@@ -206,14 +206,6 @@
     max-width:680px;
   }
   .boxai-proof p{ margin:0; font-size:14px; color:#565656; line-height:1.5; }
-  .boxai-demo-note{
-    margin:8px auto 0;
-    max-width:300px;
-    font-size:12px;
-    line-height:1.45;
-    color:#666;
-    text-align:center;
-  }
   .boxai-what-grid, .boxai-why-grid, .boxai-serve-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
@@ -279,7 +271,7 @@
   /* Mobile tweaks */
   @media (max-width:768px){
     .boxai-screenshot{ max-width:220px; }
-    .boxai-inline-logo{ max-height:64px; max-width:min(76vw, 260px); }
+    nav a.boxai-nav-logo img{ max-height:24px; max-width:110px; }
     .logo .logo-img{ min-height:44px; max-height:52px; max-width:min(260px,70vw); }
     .hero-logo-bar .hero-logo{ max-height:min(22vh, 180px); padding:12px 16px; }
     .container{ padding:0 16px 32px; }
@@ -319,7 +311,9 @@
       <a href="#/founder" data-route-link><!-- NEW -->Founder Services</a>
       <a href="#/join" data-route-link>Join Us</a>
       <a href="#/ai-future-vision" data-route-link>AI Vision</a>
-      <a href="#/boxai" data-route-link>BoxAI</a>
+      <a href="#/boxai" data-route-link class="boxai-nav-logo" title="BoxAI">
+        <img src="assets/boxai_logo.png" alt="BoxAI" width="140" height="28" loading="lazy" decoding="async" />
+      </a>
       <a href="https://www.instagram.com/patchworkwithus" target="_blank" rel="noopener noreferrer">Instagram</a>
     </nav>
   </div>
@@ -788,24 +782,21 @@
           <a href="#boxai-pitch"><span class="pill">Pitching materials</span></a>
         </div>
         <div class="row" style="gap:10px;flex-wrap:wrap">
-          <a class="btn brand" href="mailto:savagepropsllc@gmail.com?subject=Box%20AI%20service%20conversation">Talk to us about the service</a>
-          <button type="button" class="btn secondary big" onclick="document.getElementById('boxai-pitch').scrollIntoView({behavior:'smooth',block:'start'})">Pitching materials</button>
+          <a class="btn brand" href="https://vimeo.com/1175976437?share=copy&amp;fl=sv&amp;fe=ci" target="_blank" rel="noopener">Watch the Demo</a>
+          <a class="btn secondary big" href="https://www.canva.com/design/DAG4C7nvR3o/NIr2uRSftAMuDGQ67vIvmw/edit?utm_content=DAG4C7nvR3o&amp;utm_campaign=designshare&amp;utm_medium=link2&amp;utm_source=sharebutton" target="_blank" rel="noopener">View Pitch Deck</a>
+          <a class="btn secondary big" href="assets/boxai-onepager.pdf" download>Download One-Pager</a>
         </div>
         <div class="boxai-proof">
           <p><strong>Lightweight proof:</strong> this Vimeo is the live MVP walkthrough. The opening frame is from a real recorded flow, then the demo shows the product in action. Positioned for B2C users, B2B operations, and future partnership or embedded offerings where it fits.</p>
         </div>
       </div>
       <div class="boxai-video-card">
-        <div class="boxai-brand-wrap">
-          <img src="assets/boxai_logo.png" alt="BoxAI logo" class="boxai-inline-logo" width="320" height="86" loading="lazy" decoding="async" />
-        </div>
         <div class="video-shell">
           <iframe src="https://player.vimeo.com/video/1175976437?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
             referrerpolicy="strict-origin-when-cross-origin"
             title="Box AI walkthrough demo"></iframe>
         </div>
-        <p class="boxai-demo-note">MVP demo video. The thumbnail is a presenter frame from the recorded walkthrough. Press play for the full flow.</p>
       </div>
     </div>
 
