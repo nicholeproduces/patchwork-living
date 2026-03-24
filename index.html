@@ -176,20 +176,20 @@
     color:#5a5a5a;
     margin:0;
   }
-  .boxai-title-row{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    flex-wrap:wrap;
-  }
   .boxai-inline-logo{
     width:auto;
     height:auto;
-    max-height:58px;
-    max-width:min(42vw, 210px);
+    max-height:86px;
+    max-width:min(78vw, 320px);
     object-fit:contain;
     display:block;
     border-radius:8px;
+  }
+  .boxai-brand-wrap{
+    display:flex;
+    justify-content:center;
+    width:100%;
+    margin-bottom:12px;
   }
   .boxai-navchips{
     display:flex;
@@ -279,7 +279,7 @@
   /* Mobile tweaks */
   @media (max-width:768px){
     .boxai-screenshot{ max-width:220px; }
-    .boxai-inline-logo{ max-height:44px; max-width:min(62vw, 180px); }
+    .boxai-inline-logo{ max-height:64px; max-width:min(76vw, 260px); }
     .logo .logo-img{ min-height:44px; max-height:52px; max-width:min(260px,70vw); }
     .hero-logo-bar .hero-logo{ max-height:min(22vh, 180px); padding:12px 16px; }
     .container{ padding:0 16px 32px; }
@@ -777,10 +777,7 @@
         <div>
           <p class="boxai-kicker">Introducing BoxAI</p>
           <p class="boxai-label">AI-powered inventory system</p>
-          <div class="boxai-title-row">
-            <h1 style="margin:4px 0 0 0;font-size:clamp(30px,4.1vw,46px);line-height:1.14">Know exactly what you own, where it is, and who moved it.</h1>
-            <img src="assets/boxai_logo.png" alt="BoxAI logo" class="boxai-inline-logo" width="220" height="58" loading="lazy" decoding="async" />
-          </div>
+          <h1 style="margin:4px 0 0 0;font-size:clamp(30px,4.1vw,46px);line-height:1.14">Know exactly what you own, where it is, and who moved it.</h1>
           <p class="muted" style="margin:10px 0 0 0;font-size:clamp(16px,1.7vw,19px);max-width:38em;line-height:1.55">
             BoxAI helps consumers and businesses capture inventory with photos and voice, then find it fast. Over time, the platform can expand from inventory recognition into storage awareness and space-planning guidance from images.
           </p>
@@ -799,6 +796,9 @@
         </div>
       </div>
       <div class="boxai-video-card">
+        <div class="boxai-brand-wrap">
+          <img src="assets/boxai_logo.png" alt="BoxAI logo" class="boxai-inline-logo" width="320" height="86" loading="lazy" decoding="async" />
+        </div>
         <div class="video-shell">
           <iframe src="https://player.vimeo.com/video/1175976437?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
