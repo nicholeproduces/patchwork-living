@@ -1,0 +1,4 @@
+{
+  "buildCommand": "rm -rf dist && mkdir -p dist && cp index.html boxai-privacy-policy-v2.html dist/ && cp -r assets images dist/",
+  "outputDirectory": "dist"
+}
