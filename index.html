@@ -215,13 +215,16 @@
     gap:16px;
   }
   .boxai-what-grid .card, .boxai-why-grid .card, .boxai-serve-grid .card{ height:100%; }
-  .boxai-screenshot{
-    max-width:260px;
+  .boxai-product-visual{
+    max-width:min(320px, 100%);
+    width:auto;
+    height:auto;
     border-radius:12px;
     border:1px solid var(--line);
     box-shadow:var(--shadow-sm);
     background:#fff;
     display:block;
+    object-fit:contain;
   }
   .boxai-pitch-actions{
     display:flex;
@@ -234,6 +237,97 @@
     color:#6a6a6a;
     margin-top:6px;
   }
+  .boxai-platform-row{
+    display:flex; flex-wrap:wrap; gap:8px; align-items:center;
+    margin:0 0 14px 0;
+    max-width:100%;
+  }
+  .boxai-platform-badge{
+    display:inline-flex; align-items:center; justify-content:center;
+    font-size:12px; font-weight:600;
+    padding:10px 14px; min-height:36px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    background:#fffef9;
+    color:#4a4a4a;
+    text-decoration:none;
+    line-height:1.35;
+    max-width:100%;
+    text-align:center;
+  }
+  a.boxai-platform-badge:hover{ background:#fff; border-color:var(--color-6); color:#111; }
+  a.boxai-platform-badge:focus-visible{ outline:2px solid var(--brand); outline-offset:2px; }
+  .boxai-cta-stack{
+    display:flex; flex-direction:column; gap:10px;
+    width:100%; max-width:100%;
+  }
+  .boxai-cta-stack .btn{
+    min-height:44px;
+    width:100%;
+    box-sizing:border-box;
+    white-space:normal;
+    text-align:center;
+  }
+  @media (min-width:769px){
+    .boxai-cta-stack.is-row{
+      flex-direction:row; flex-wrap:wrap; align-items:stretch;
+    }
+    .boxai-cta-stack.is-row .btn{ width:auto; flex:0 1 auto; }
+  }
+  .boxai-join-beta{
+    margin-top:4px;
+    padding-top:18px;
+    border-top:1px solid var(--line);
+    display:flex; flex-direction:column; gap:12px;
+    max-width:100%;
+  }
+  .boxai-join-beta h2{
+    font-size:clamp(18px,2.2vw,22px);
+    margin:0;
+    line-height:1.25;
+  }
+  .boxai-join-beta > p.muted{ margin:0; font-size:clamp(15px,1.6vw,17px); line-height:1.55; max-width:42em; }
+  .boxai-privacy-inline{
+    margin:20px 0 0 0;
+    padding-top:16px;
+    border-top:1px solid var(--line);
+    text-align:center;
+  }
+  .boxai-privacy-inline a{
+    font-size:13px;
+    color:#888;
+    text-decoration:underline;
+    text-underline-offset:3px;
+  }
+  .boxai-privacy-inline a:hover{ color:#555; }
+  .boxai-privacy-page{ padding-top:8px; padding-bottom:48px; }
+  .boxai-privacy-shell{
+    max-width:760px;
+    margin:0 auto;
+    padding:8px clamp(16px,4vw,28px) 40px;
+    font-size:16px;
+    line-height:1.65;
+    color:var(--ink);
+    overflow-x:hidden;
+    word-wrap:break-word;
+  }
+  .boxai-privacy-shell .boxai-privacy-content h1{
+    font-size:clamp(24px,4vw,32px);
+    margin:0 0 16px;
+    line-height:1.2;
+  }
+  .boxai-privacy-shell .boxai-privacy-content h2{
+    font-size:clamp(18px,2.5vw,22px);
+    margin:28px 0 10px;
+    line-height:1.25;
+  }
+  .boxai-privacy-shell .boxai-privacy-content p,
+  .boxai-privacy-shell .boxai-privacy-content li{ margin:0 0 12px; }
+  .boxai-privacy-shell .boxai-privacy-content .lead{ font-size:17px; color:#444; }
+  .boxai-privacy-shell .boxai-privacy-content ul,
+  .boxai-privacy-shell .boxai-privacy-content ol{ padding-left:22px; }
+  .boxai-privacy-shell .boxai-privacy-content a{ color:var(--color-8); }
+  .boxai-privacy-shell .boxai-privacy-content small{ font-size:13px; color:#666; }
   .scenarios-layout{
     display:grid;
     grid-template-columns:minmax(0, 1.15fr) minmax(280px, 420px);
@@ -273,7 +367,9 @@
 
   /* Mobile tweaks */
   @media (max-width:768px){
-    .boxai-screenshot{ max-width:220px; }
+    .boxai-pitch-actions{ flex-direction:column; align-items:stretch; }
+    .boxai-pitch-actions .btn{ width:100%; min-height:44px; white-space:normal; text-align:center; }
+    .boxai-product-visual{ max-width:min(280px, 92vw); }
     nav a.boxai-nav-logo img{ max-height:24px; max-width:110px; }
     .logo .logo-img{ min-height:44px; max-height:52px; max-width:min(260px,70vw); }
     .hero-logo-bar .hero-logo{ max-height:min(22vh, 180px); padding:12px 16px; }
@@ -775,6 +871,10 @@
           <p class="boxai-kicker">Introducing BoxAI</p>
           <p class="boxai-label">AI-powered inventory system</p>
           <h1 style="margin:4px 0 0 0;font-size:clamp(30px,4.1vw,46px);line-height:1.14">Know exactly what you own, where it is, and who moved it.</h1>
+          <div class="boxai-platform-row" aria-label="Platform availability">
+            <a class="boxai-platform-badge" href="https://play.google.com/store/apps/details?id=com.savageprops.boxai" target="_blank" rel="noopener noreferrer">Available on Google Play</a>
+            <span class="boxai-platform-badge">Available on Apple TestFlight — request access below</span>
+          </div>
           <p class="muted" style="margin:10px 0 0 0;font-size:clamp(16px,1.7vw,19px);max-width:38em;line-height:1.55">
             BoxAI helps consumers and businesses capture inventory with photos and voice, then find it fast. Over time, the platform can expand from inventory recognition into storage awareness and space-planning guidance from images.
           </p>
@@ -784,10 +884,14 @@
           <a href="#boxai-serves"><span class="pill">Who it serves</span></a>
           <a href="#boxai-pitch"><span class="pill">Pitching materials</span></a>
         </div>
-        <div class="row" style="gap:10px;flex-wrap:wrap">
-          <a class="btn brand" href="mailto:savagepropsllc@gmail.com?subject=Box%20AI%20Beta%20Testing">Contact us about beta testing</a>
+        <div class="boxai-cta-stack is-row">
           <a class="btn secondary big" href="https://www.canva.com/design/DAG4C7nvR3o/NIr2uRSftAMuDGQ67vIvmw/edit?utm_content=DAG4C7nvR3o&amp;utm_campaign=designshare&amp;utm_medium=link2&amp;utm_source=sharebutton" target="_blank" rel="noopener">View Pitch Deck</a>
           <a class="btn secondary big" href="assets/boxai-onepager.pdf" download>Download One-Pager</a>
+        </div>
+        <div class="boxai-join-beta">
+          <h2>Join the beta</h2>
+          <p class="muted">Available to verified testers on Android and iOS. Request access and we'll send you an invite link.</p>
+          <a class="btn brand big" href="mailto:savagepropsllc@gmail.com?subject=BoxAI%20Beta%20Tester%20Request&amp;body=Name%3A%0AEmail%3A%0APlatform%20(Android%20or%20iOS)%3A%0AHow%20you%20plan%20to%20use%20it%3A%0A">Request tester access</a>
         </div>
       </div>
       <div class="boxai-video-card">
@@ -840,10 +944,15 @@
     <div class="stack" style="gap:8px">
       <h2 style="font-size:clamp(20px,2.3vw,28px);margin:0">Product visual</h2>
       <p class="muted small" style="margin:0;max-width:520px">Current build snapshot. Demo video is above.</p>
-      <picture>
-        <source media="(max-width: 768px)" srcset="assets/boxai_analyzewithai-mobile.jpg" type="image/jpeg" />
-        <img class="boxai-screenshot" src="assets/boxai_analyzewithai.png" alt="BoxAI analyze with AI screen" width="400" height="800" loading="lazy" decoding="async" />
-      </picture>
+      <img
+        class="boxai-product-visual"
+        src="assets/boxai-product-visual.jpg"
+        alt="BoxAI product screen"
+        width="946"
+        height="2048"
+        loading="lazy"
+        decoding="async"
+      />
     </div>
 
     <!-- 6. PITCH MATERIALS / PILOT -->
@@ -857,6 +966,17 @@
       <p class="boxai-footer-note">BoxAI is a Savage Props LLC company.</p>
     </div>
 
+    <p class="boxai-privacy-inline"><a href="#/boxai-privacy" data-route-link>Privacy policy</a></p>
+
+  </div>
+</section>
+
+<!-- BOXAI PRIVACY (policy body loaded from boxai-privacy-policy-v2.html) -->
+<section id="route-boxai-privacy" data-route="boxai-privacy" hidden>
+  <div class="container boxai-privacy-page">
+    <div class="boxai-privacy-shell">
+      <div id="boxai-privacy-host" class="boxai-privacy-content" aria-live="polite">Loading…</div>
+    </div>
   </div>
 </section>
 
@@ -1051,6 +1171,26 @@
   /* ===== Helpers ===== */
   function fmtDate(d){ try{ return new Date(d+'T00:00:00').toLocaleDateString(undefined,{month:'short',day:'numeric'});}catch{return d} }
 
+  /* ===== BoxAI privacy policy (inject HTML from standalone file) ===== */
+  let boxaiPrivacyLoaded = false;
+  function loadBoxaiPrivacy(){
+    const host = document.getElementById('boxai-privacy-host');
+    if(!host || boxaiPrivacyLoaded) return;
+    host.setAttribute('aria-busy','true');
+    fetch('/boxai-privacy-policy-v2.html')
+      .then(r => { if(!r.ok) throw new Error('fetch failed'); return r.text(); })
+      .then(html => {
+        const doc = new DOMParser().parseFromString(html, 'text/html');
+        const main = doc.querySelector('main#boxai-privacy-doc') || doc.querySelector('main') || doc.body;
+        host.innerHTML = main.innerHTML;
+        boxaiPrivacyLoaded = true;
+      })
+      .catch(() => {
+        host.innerHTML = '<p class="muted">Unable to load the privacy policy. Please try again later.</p>';
+      })
+      .finally(() => { host.removeAttribute('aria-busy'); });
+  }
+
   /* ===== Router ===== */
   function route(){
     const hash = location.hash.replace('#/','') || 'home';
@@ -1063,7 +1203,9 @@
     });
     if(hash==='search-sitters') renderSitters();
     if(hash==='search-projects') renderProjects();
+    if(hash==='boxai-privacy') loadBoxaiPrivacy();
     document.getElementById('year').textContent = new Date().getFullYear();
+    window.scrollTo(0, 0);
   }
   window.addEventListener('hashchange', route);
   if(!location.hash) location.hash = '#/home';

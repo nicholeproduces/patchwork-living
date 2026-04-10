@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/boxai-privacy-policy-v2.html",
+      "destination": "/public/boxai-privacy-policy-v2.html"
+    }
+  ]
+}
