@@ -10,7 +10,8 @@
   gtag('config', 'G-WQ48CR9DB0');
 </script>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<base href="/" />
 <title>Patchwork Living</title>
 
 <style>
@@ -390,6 +391,199 @@
     .btn{ font-size:14px; padding:12px 18px; }
     .card .content{ padding:16px; }
   }
+
+  /* BoxAI + BoxAI privacy: app startup–aligned palette (no site-wide yellow/cream brand) */
+  html:has(body.theme-boxai){ background:#0A0F1E; }
+  body.theme-boxai{
+    background:#0A0F1E;
+    color:#F0F4FF;
+    --brand:#2D6AF6;
+    --brand-ink:#F0F4FF;
+    --ink:#F0F4FF;
+    --muted:rgba(45,106,246,0.16);
+    --card:#121A2E;
+    --line:rgba(139,157,195,0.32);
+    --color-8:#00D4FF;
+    --shadow-sm:0 2px 10px rgba(0,0,0,.22);
+    --shadow-md:0 6px 20px rgba(0,0,0,.32);
+    --shadow-lg:0 14px 44px rgba(0,0,0,.42);
+  }
+  body.theme-boxai header{
+    background:rgba(10,15,30,.94);
+    backdrop-filter:saturate(1.2) blur(20px);
+    border-bottom-color:rgba(139,157,195,0.22);
+  }
+  body.theme-boxai .logo{ color:#F0F4FF; }
+  body.theme-boxai nav a{ color:#8B9DC3; }
+  body.theme-boxai nav a.active,
+  body.theme-boxai nav a:hover{
+    background:rgba(45,106,246,0.2);
+    color:#F0F4FF;
+  }
+  body.theme-boxai footer{
+    background:#0A0F1E;
+    border-top-color:rgba(139,157,195,0.22);
+    color:#8B9DC3;
+  }
+  body.theme-boxai footer a{
+    color:#00D4FF;
+    text-decoration:none;
+    font-weight:600;
+  }
+  body.theme-boxai footer a:hover{
+    color:#F0F4FF;
+    text-decoration:underline;
+  }
+  body.theme-boxai footer .small.muted{ color:#8B9DC3; }
+
+  body.theme-boxai #route-boxai .muted,
+  body.theme-boxai #route-boxai-privacy .muted{ color:#8B9DC3; }
+  body.theme-boxai #route-boxai .pill{
+    background:rgba(18,26,46,.92);
+    border-color:rgba(139,157,195,0.38);
+    color:#F0F4FF;
+  }
+  body.theme-boxai #route-boxai .boxai-navchips a:hover .pill{
+    border-color:#00D4FF;
+    color:#00D4FF;
+  }
+  body.theme-boxai #route-boxai .btn.brand:hover,
+  body.theme-boxai #route-boxai-privacy .btn.brand:hover{
+    filter:none;
+    background:#00D4FF;
+    color:#0A0F1E;
+    border-color:#00D4FF;
+  }
+  body.theme-boxai #route-boxai .btn.secondary,
+  body.theme-boxai #route-boxai-privacy .btn.secondary{
+    background:transparent;
+    border-color:rgba(139,157,195,0.5);
+    color:#F0F4FF;
+    box-shadow:none;
+  }
+  body.theme-boxai #route-boxai .btn.secondary:hover,
+  body.theme-boxai #route-boxai-privacy .btn.secondary:hover{
+    border-color:#00D4FF;
+    color:#00D4FF;
+  }
+  body.theme-boxai .boxai-platform-badge{
+    background:rgba(18,26,46,.92);
+    border-color:rgba(139,157,195,0.32);
+    color:#8B9DC3;
+  }
+  body.theme-boxai a.boxai-platform-badge:hover{
+    background:rgba(45,106,246,0.18);
+    border-color:#00D4FF;
+    color:#F0F4FF;
+  }
+  body.theme-boxai a.boxai-platform-badge:focus-visible{ outline-color:#2D6AF6; }
+  body.theme-boxai .boxai-label{ color:#8B9DC3; }
+  body.theme-boxai .boxai-video-tagline{ color:#8B9DC3; }
+  body.theme-boxai .boxai-footer-note{ color:#8B9DC3; }
+  body.theme-boxai .boxai-privacy-inline a{ color:#8B9DC3; }
+  body.theme-boxai .boxai-privacy-inline a:hover{ color:#00D4FF; }
+  body.theme-boxai .boxai-product-visual{
+    border-color:rgba(139,157,195,0.35);
+    background:rgba(10,15,30,.6);
+  }
+  body.theme-boxai .boxai-privacy-shell .boxai-privacy-content .lead{ color:#8B9DC3; }
+  body.theme-boxai .boxai-privacy-shell .boxai-privacy-content small{ color:#8B9DC3; }
+  /* Privacy route: same palette as Box AI marketing (explicit overrides for injected policy HTML) */
+  body.theme-boxai #route-boxai-privacy{
+    background:#0A0F1E;
+  }
+  body.theme-boxai #route-boxai-privacy .boxai-privacy-shell{
+    color:#F0F4FF;
+  }
+  body.theme-boxai #route-boxai-privacy .boxai-privacy-shell .boxai-privacy-content h1,
+  body.theme-boxai #route-boxai-privacy .boxai-privacy-shell .boxai-privacy-content h2{
+    color:#F0F4FF;
+  }
+  body.theme-boxai #route-boxai-privacy .boxai-privacy-shell .boxai-privacy-content p,
+  body.theme-boxai #route-boxai-privacy .boxai-privacy-shell .boxai-privacy-content li{
+    color:#F0F4FF;
+  }
+  body.theme-boxai #route-boxai-privacy .boxai-privacy-shell .boxai-privacy-content a{
+    color:#2D6AF6;
+  }
+  body.theme-boxai #route-boxai-privacy .boxai-privacy-shell .boxai-privacy-content a:hover{
+    color:#00D4FF;
+  }
+  body.theme-boxai #route-boxai-privacy .boxai-privacy-shell .boxai-privacy-content a:focus-visible{
+    outline:2px solid #2D6AF6;
+    outline-offset:2px;
+  }
+  body.theme-boxai .video-shell{
+    box-shadow:0 8px 28px rgba(0,212,255,0.08), 0 8px 24px rgba(0,0,0,0.45);
+    border:1px solid rgba(0,212,255,0.15);
+  }
+
+  /* BoxAI + privacy: mobile + notches (Instagram traffic) */
+  @supports (padding: max(0px)){
+    body.theme-boxai header .nav{
+      padding-left:max(20px, env(safe-area-inset-left));
+      padding-right:max(20px, env(safe-area-inset-right));
+      padding-top:max(10px, env(safe-area-inset-top));
+    }
+    body.theme-boxai .container,
+    body.theme-boxai .boxai-privacy-page{
+      padding-left:max(16px, env(safe-area-inset-left));
+      padding-right:max(16px, env(safe-area-inset-right));
+      padding-bottom:max(48px, env(safe-area-inset-bottom));
+    }
+    body.theme-boxai footer .container{
+      padding-left:max(24px, env(safe-area-inset-left));
+      padding-right:max(24px, env(safe-area-inset-right));
+      padding-bottom:max(40px, env(safe-area-inset-bottom));
+    }
+  }
+  @media (max-width:768px){
+    body.theme-boxai nav a{
+      min-height:44px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 12px;
+      -webkit-tap-highlight-color:rgba(45,106,246,0.28);
+    }
+    body.theme-boxai nav a.boxai-nav-logo{ padding:8px 10px; }
+    body.theme-boxai .boxai-privacy-shell{
+      padding-left:max(12px, env(safe-area-inset-left, 0px));
+      padding-right:max(12px, env(safe-area-inset-right, 0px));
+    }
+    body.theme-boxai .boxai-privacy-shell .boxai-privacy-content{
+      overflow-wrap:break-word;
+      word-wrap:break-word;
+    }
+    body.theme-boxai .boxai-platform-row{
+      flex-direction:column;
+      align-items:stretch;
+    }
+    body.theme-boxai .boxai-platform-badge,
+    body.theme-boxai a.boxai-platform-badge{
+      width:100%;
+      max-width:100%;
+      justify-content:center;
+      text-align:center;
+    }
+    body.theme-boxai #route-boxai .boxai-navchips .pill{
+      min-height:44px;
+      align-items:center;
+    }
+    body.theme-boxai #route-boxai .boxai-cta-stack .btn{ min-height:48px; }
+  }
+  @media (max-width:480px){
+    body.theme-boxai #route-boxai .boxai-hero-title{
+      font-size:clamp(22px,6.2vw,34px);
+      line-height:1.18;
+    }
+    body.theme-boxai .video-shell{
+      max-width:min(300px, 100%);
+      margin-left:auto;
+      margin-right:auto;
+    }
+    body.theme-boxai section{ margin-bottom:48px; }
+  }
 </style>
 </head>
 <body>
@@ -397,20 +591,20 @@
 <!-- NAV -->
 <header>
   <div class="nav">
-    <a href="#/home" class="logo" data-route-link style="text-decoration:none;color:inherit" title="Patchwork Living home">
+    <a href="/" class="logo" data-route-link style="text-decoration:none;color:inherit" title="Patchwork Living home">
       <img src="assets/patchwork_living_logo.png" alt="Patchwork Living" class="logo-img" width="280" height="56" decoding="async" />
     </a>
     <nav id="topnav" aria-label="Main">
-      <a href="#/home" data-route-link>Home</a>
-      <a href="#/search-sitters" data-route-link>Gap Sitters</a>
-      <a href="#/search-projects" data-route-link>Example scenarios</a>
-      <a href="#/how" data-route-link>How It Works</a>
-      <a href="#/pricing" data-route-link>Pricing</a>
-      <a href="#/community" data-route-link>Market Signals</a>
-      <a href="#/founder" data-route-link><!-- NEW -->Founder Services</a>
-      <a href="#/join" data-route-link>Join Us</a>
-      <a href="#/ai-future-vision" data-route-link>AI Vision</a>
-      <a href="#/boxai" data-route-link class="boxai-nav-logo" title="BoxAI">
+      <a href="/" data-route-link>Home</a>
+      <a href="/search-sitters" data-route-link>Gap Sitters</a>
+      <a href="/search-projects" data-route-link>Example scenarios</a>
+      <a href="/how" data-route-link>How It Works</a>
+      <a href="/pricing" data-route-link>Pricing</a>
+      <a href="/community" data-route-link>Market Signals</a>
+      <a href="/founder" data-route-link><!-- NEW -->Founder Services</a>
+      <a href="/join" data-route-link>Join Us</a>
+      <a href="/ai-future-vision" data-route-link>AI Vision</a>
+      <a href="/boxai" data-route-link class="boxai-nav-logo" title="BoxAI">
         <img src="assets/boxai_logo.png" alt="BoxAI" width="140" height="28" loading="lazy" decoding="async" />
       </a>
       <a href="https://www.instagram.com/patchworkwithus" target="_blank" rel="noopener noreferrer">Instagram</a>
@@ -833,7 +1027,7 @@
     <p class="small muted">WhatsApp available by request after initial contact.</p>
 
     <h3>Learn more about Patchwork Living</h3>
-    <p><a href="#/home">Go to Patchwork Living home</a></p>
+    <p><a href="/" data-route-link>Go to Patchwork Living home</a></p>
 
     <h3>Disclaimer</h3>
     <p class="muted">I do not provide legal, immigration, or medical advice. I can connect you to trusted professionals, recommend verified resources, and help organize the logistics, paperwork, and communication you need to move forward.</p>
@@ -861,7 +1055,7 @@
 </section>
 
 <!-- BOXAI -->
-<section id="route-boxai" data-route="boxai">
+<section id="route-boxai" data-route="boxai" hidden>
   <div class="container stack boxai-page">
 
     <!-- 1. HERO / INTRO -->
@@ -870,7 +1064,7 @@
         <div>
           <p class="boxai-kicker">Introducing BoxAI</p>
           <p class="boxai-label">AI-powered inventory system</p>
-          <h1 style="margin:4px 0 0 0;font-size:clamp(30px,4.1vw,46px);line-height:1.14">Know exactly what you own, where it is, and who moved it.</h1>
+          <h1 class="boxai-hero-title" style="margin:4px 0 0 0;font-size:clamp(30px,4.1vw,46px);line-height:1.14">Know exactly what you own, where it is, and who moved it.</h1>
           <div class="boxai-platform-row" aria-label="Platform availability">
             <a class="boxai-platform-badge" href="https://play.google.com/store/apps/details?id=com.savageprops.boxai" target="_blank" rel="noopener noreferrer">Available on Google Play</a>
             <span class="boxai-platform-badge">Available on Apple TestFlight — request access below</span>
@@ -887,6 +1081,7 @@
         <div class="boxai-cta-stack is-row">
           <a class="btn secondary big" href="https://www.canva.com/design/DAG4C7nvR3o/NIr2uRSftAMuDGQ67vIvmw/edit?utm_content=DAG4C7nvR3o&amp;utm_campaign=designshare&amp;utm_medium=link2&amp;utm_source=sharebutton" target="_blank" rel="noopener">View Pitch Deck</a>
           <a class="btn secondary big" href="assets/boxai-onepager.pdf" download>Download One-Pager</a>
+          <a class="btn secondary big" href="/boxai-demo" data-route-link title="Not implemented yet">See how it works</a>
         </div>
         <div class="boxai-join-beta">
           <h2>Join the beta</h2>
@@ -966,8 +1161,22 @@
       <p class="boxai-footer-note">BoxAI is a Savage Props LLC company.</p>
     </div>
 
-    <p class="boxai-privacy-inline"><a href="#/boxai-privacy" data-route-link>Privacy policy</a></p>
+    <p class="boxai-privacy-inline"><a href="/boxai-privacy" data-route-link>Privacy policy</a></p>
 
+  </div>
+</section>
+
+<!-- BOXAI DEMO (reserved route — not implemented; keep for future standalone extract) -->
+<section id="route-boxai-demo" data-route="boxai-demo" hidden>
+  <div class="container stack boxai-page">
+    <p class="boxai-kicker">BoxAI</p>
+    <h1 style="margin:0;font-size:clamp(26px,3vw,36px);line-height:1.2">Interactive demo</h1>
+    <p class="muted" style="max-width:40em;margin:0">This in-browser experience is <strong>not implemented</strong> on the site yet. The route is reserved for a future build and for a possible standalone BoxAI site.</p>
+    <p class="muted small" style="margin:0">Use the main BoxAI page for pitch materials, downloads, and beta access.</p>
+    <div class="row" style="gap:10px;flex-wrap:wrap;margin-top:8px">
+      <a class="btn brand" href="/boxai" data-route-link>Back to BoxAI</a>
+      <a class="btn secondary" href="/" data-route-link>Patchwork Living home</a>
+    </div>
   </div>
 </section>
 
@@ -1018,13 +1227,23 @@
   </div>
 </section>
 
+<!-- PRIVACY (site-wide placeholder) -->
+<section id="route-privacy" data-route="privacy" hidden>
+  <div class="container stack" style="gap:14px;max-width:720px">
+    <h2 style="margin:0">Privacy</h2>
+    <p class="muted" style="margin:0">A full Patchwork Living privacy policy for this marketing site is coming soon.</p>
+    <p class="small muted" style="margin:0">For BoxAI app privacy, see <a href="/boxai-privacy" data-route-link>BoxAI privacy policy</a>.</p>
+    <p style="margin:0"><a href="/" class="btn secondary" data-route-link>Back to home</a></p>
+  </div>
+</section>
+
 </main>
 
 <footer>
   <div class="container row" style="justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
     <p class="small muted" style="margin:0">© <span id="year"></span> Patchwork Living · Structured occupancy &amp; asset protection network</p>
     <nav class="row" style="gap:10px">
-      <a href="#/privacy" onclick="event.preventDefault();alert('Privacy coming soon')">Privacy</a>
+      <a href="/privacy" data-route-link>Privacy</a>
     </nav>
   </div>
 </footer>
@@ -1191,25 +1410,99 @@
       .finally(() => { host.removeAttribute('aria-busy'); });
   }
 
-  /* ===== Router ===== */
-  function route(){
-    const hash = location.hash.replace('#/','') || 'home';
+  /* =============================================================================
+   * BoxAI (extract later): route ids, theme — keep in one place for a standalone site.
+   * ============================================================================= */
+  const BoxAIRoutes = {
+    ids: ['boxai', 'boxai-privacy', 'boxai-demo'],
+    appliesTheme(route){ return this.ids.includes(route); },
+  };
+
+  /* ===== History API router (/ = home, /pricing, /boxai, …) ===== */
+  const AppRouter = {
+    routes: new Set([
+      'home','community','why','search-sitters','search-projects','how','pricing',
+      'founder','join','ai-future-vision','boxai','boxai-privacy','privacy','boxai-demo',
+    ]),
+    normalizePath(pathname){
+      let p = String(pathname).split('?')[0].split('#')[0];
+      if (p.endsWith('/index.html')) p = p.slice(0, -'/index.html'.length) || '/';
+      p = p.replace(/\/+$/, '') || '/';
+      return p;
+    },
+    pathToRoute(pathname){
+      const p = this.normalizePath(pathname);
+      const seg = p === '/' ? 'home' : p.slice(1);
+      if (this.routes.has(seg)) return seg;
+      return 'home';
+    },
+    routeToPath(route){
+      if (route === 'home') return '/';
+      return '/' + route;
+    },
+    getRoute(){ return this.pathToRoute(location.pathname); },
+    navigate(route, opts){
+      const replace = opts && opts.replace;
+      const path = this.routeToPath(route);
+      if (replace) history.replaceState(null, '', path);
+      else history.pushState(null, '', path);
+      applyRoute(route);
+    },
+  };
+
+  function applyRoute(route){
     document.querySelectorAll('section[data-route]').forEach(sec => {
-      sec.hidden = sec.getAttribute('data-route') !== hash;
+      sec.hidden = sec.getAttribute('data-route') !== route;
     });
-    document.querySelectorAll('nav a[data-route-link]').forEach(a=>{
-      const r = a.getAttribute('href').replace('#/','');
-      if(r===hash) a.classList.add('active'); else a.classList.remove('active');
+    document.querySelectorAll('a[data-route-link]').forEach(a => {
+      const href = a.getAttribute('href');
+      if (!href || href.startsWith('mailto:')){ a.classList.remove('active'); return; }
+      try{
+        const u = new URL(href, location.href);
+        if (u.origin !== location.origin){ a.classList.remove('active'); return; }
+        const r = AppRouter.pathToRoute(u.pathname);
+        if (r === route) a.classList.add('active');
+        else a.classList.remove('active');
+      }catch(_){ a.classList.remove('active'); }
     });
-    if(hash==='search-sitters') renderSitters();
-    if(hash==='search-projects') renderProjects();
-    if(hash==='boxai-privacy') loadBoxaiPrivacy();
-    document.getElementById('year').textContent = new Date().getFullYear();
+    if (route === 'search-sitters') renderSitters();
+    if (route === 'search-projects') renderProjects();
+    if (route === 'boxai-privacy') loadBoxaiPrivacy();
+    document.body.classList.toggle('theme-boxai', BoxAIRoutes.appliesTheme(route));
+    const y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
     window.scrollTo(0, 0);
   }
-  window.addEventListener('hashchange', route);
-  if(!location.hash) location.hash = '#/home';
-  route();
+
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[data-route-link]');
+    if (!a || e.defaultPrevented) return;
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    if (e.button !== 0) return;
+    const href = a.getAttribute('href');
+    if (!href || href.startsWith('mailto:')) return;
+    if (/^https?:\/\//i.test(href)){
+      try{
+        if (new URL(href).origin !== location.origin) return;
+      }catch(_){ return; }
+    }
+    let path;
+    try{ path = new URL(href, location.href).pathname; }
+    catch(_){ return; }
+    e.preventDefault();
+    AppRouter.navigate(AppRouter.pathToRoute(path));
+  });
+
+  window.addEventListener('popstate', () => { applyRoute(AppRouter.getRoute()); });
+
+  (function initHistoryRouter(){
+    const route = AppRouter.pathToRoute(location.pathname);
+    const expected = AppRouter.routeToPath(route);
+    if (AppRouter.normalizePath(location.pathname) !== AppRouter.normalizePath(expected)){
+      history.replaceState(null, '', expected);
+    }
+    applyRoute(route);
+  })();
 </script>
 </body>
 </html>
